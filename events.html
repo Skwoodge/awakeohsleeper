@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Events — Awake Oh Sleeper Productions</title>
+  <meta name="description" content="May 30, 2026 at The Yard in Prescott, AZ. Featuring FAYUCA, Reliance, The Skavelinas, and The Ringtails. All ages, $35 advance.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/animations.js" defer></script>
+
+  <link rel="icon" type="image/webp" href="assets/logo.webp">
+</head>
+<body>
+
+  <div id="loading-screen" class="loading-screen">
+    <img src="assets/logo.webp" alt="Awake Oh Sleeper" class="loading-logo">
+    <div class="loading-text"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span><span>&nbsp;</span><span>.</span><span>.</span><span>.</span></div>
+  </div>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav-logo">
+      <a href="index.html"><img src="assets/logo.webp" alt="Awake Oh Sleeper"></a>
+      <span class="nav-logo-text">AWAKE OH SLEEPER</span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html" class="active">Events</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="get-help.html">Get Help</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="hero" style="min-height: 50vh;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge neon-text-sm">Upcoming Show</span>
+      <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">
+        May <span class="highlight">30</span>, 2026
+      </h1>
+      <p class="hero-subtitle">
+        The Yard · Prescott, AZ · Doors 7PM · All Ages
+      </p>
+      <div class="hero-actions">
+        <a href="https://swipesimple.com" target="_blank" rel="noopener" class="btn btn-primary btn-glow">Buy Tickets</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== COUNTDOWN ===== -->
+  <section class="section section-darker">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Countdown</span>
+        <h2>The Night Is <span class="neon-text">Coming</span></h2>
+      </div>
+
+      <div id="countdown" class="countdown reveal">
+        <div class="countdown-item">
+          <span class="countdown-number" id="count-days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-item">
+          <span class="countdown-number" id="count-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-item">
+          <span class="countdown-number" id="count-minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-item">
+          <span class="countdown-number" id="count-seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== BAND LINEUP ===== -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Band Lineup</span>
+        <h2>Who's <span class="neon-text">Playing</span></h2>
+        <p style="color: var(--text-secondary); margin-top: var(--space-md); max-width: 600px; margin-left: auto; margin-right: auto;">
+          Four bands. One stage. One cause.
+        </p>
+      </div>
+
+      <div class="band-lineup stagger-children" style="margin-top: var(--space-xl);">
+        <div class="band-card featured">
+          <div class="band-name neon-text" style="font-size: 2rem;">FAYUCA</div>
+          <div class="band-role">Headlining</div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--space-md);">
+            High-energy punk/ska bringing the fire
+          </p>
+        </div>
+        <div class="band-card">
+          <div class="band-name">Reliance</div>
+          <div class="band-role">Performing</div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--space-md);">
+            The host band — punk with purpose
+          </p>
+        </div>
+        <div class="band-card">
+          <div class="band-name">The Skavelinas</div>
+          <div class="band-role">Performing</div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--space-md);">
+            Ska vibes that'll make you move
+          </p>
+        </div>
+        <div class="band-card">
+          <div class="band-name">The Ringtails</div>
+          <div class="band-role">Performing</div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--space-md);">
+            Prescott locals bringing the ruckus
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== TICKETING ===== -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <span class="section-label">Tickets</span>
+        <h2>Get Your <span class="neon-text">Tickets</span></h2>
+
+        <div class="ticket-price" style="margin: var(--space-lg) 0;">
+          $35 <span class="highlight">Advance</span>
+          <span style="font-size: 1.2rem; color: var(--text-secondary); font-family: var(--font-body);"> / </span>
+          $40 Door
+        </div>
+
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
+          All ages welcome · 12 and under FREE
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center;">
+          <a href="https://swipesimple.com" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Buy 1 Ticket — $35</a>
+          <a href="https://swipesimple.com" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Buy 2 Tickets — $70</a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; margin-top: var(--space-md);">
+          <a href="https://swipesimple.com" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Buy 3 Tickets — $105</a>
+          <a href="https://swipesimple.com" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Buy 4 Tickets — $140</a>
+        </div>
+
+        <p style="color: var(--green-forest); font-size: 0.85rem; margin-top: var(--space-xl); font-family: var(--font-mono); letter-spacing: 1px;">
+          ◆ All proceeds support mental health and suicide awareness in Yavapai County ◆
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== VENUE INFO ===== -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Venue</span>
+        <h2>The <span class="neon-text">Yard</span></h2>
+        <p style="color: var(--text-secondary); margin: var(--space-md) 0 var(--space-lg);">
+          Prescott, AZ
+        </p>
+        <div style="background: var(--bg-card); border: 1px solid rgba(233, 240, 11, 0.08); padding: var(--space-lg); max-width: 500px; margin: 0 auto;">
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            <strong style="color: var(--accent-primary);">Doors:</strong> 7:00 PM<br>
+            <strong style="color: var(--accent-primary);">Music:</strong> 8:00 PM<br>
+            <strong style="color: var(--accent-primary);">Ages:</strong> All Ages (12 &amp; under free)<br>
+            <strong style="color: var(--accent-primary);">Parking:</strong> Street parking available
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== RADIO PARTNERS ===== -->
+  <section class="section section-darker" style="padding: var(--space-xl) 0;">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Radio Partners</span>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-lg);">Thanks to our media partners spreading the word</p>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-lg); justify-content: center;">
+          <a href="https://98kupd.com" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size: 0.8rem;">98KUPD</a>
+          <a href="https://gcmaz.com/arizona-hope/" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size: 0.8rem;">Arizona Hope</a>
+          <a href="https://magic991.com" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size: 0.8rem;">Magic 99.1</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CRISIS ===== -->
+  <section class="crisis-section">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Get Help Now</span>
+        <div class="crisis-number">988</div>
+        <p class="crisis-tagline">Suicide &amp; Crisis Lifeline — Call or Text. You Are Not Alone.</p>
+        <div class="crisis-buttons">
+          <a href="tel:988" class="crisis-btn">Call 988</a>
+          <a href="sms:988" class="crisis-btn">Text 988</a>
+          <a href="https://988lifeline.org/chat" target="_blank" class="crisis-btn">Chat Online</a>
+          <a href="get-help.html" class="crisis-btn">More Resources</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Awake Oh Sleeper" style="width: 50px;">
+          <p>Awake Oh Sleeper Productions unites people through music, raising awareness for mental health and suicide prevention in Yavapai County.</p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="get-help.html">Get Help</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Resources</h4>
+          <a href="tel:988">Call 988</a>
+          <a href="https://988lifeline.org" target="_blank">988lifeline.org</a>
+          <a href="https://211.org" target="_blank">211.org</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Follow</h4>
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Awake Oh Sleeper Productions. All Rights Reserved.</span>
+        <span>Hope is always louder.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Help — Awake Oh Sleeper Productions</title>
+  <meta name="description" content="Mental health and suicide prevention resources for Yavapai County. You are not alone. Call or text 988.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/animations.js" defer></script>
+
+  <link rel="icon" type="image/webp" href="assets/logo.webp">
+
+  <style>
+    /* Extra accessibility touches for Get Help page */
+    .quick-exit {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 999;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 10px 18px;
+      background: var(--danger);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    .quick-exit:hover {
+      background: #ff1744;
+      transform: scale(1.05);
+    }
+    @media (max-width: 480px) {
+      .quick-exit {
+        top: 75px;
+        right: 10px;
+        padding: 8px 14px;
+        font-size: 0.6rem;
+      }
+    }
+    .hero { min-height: 50vh; }
+  </style>
+</head>
+<body>
+
+  <div id="loading-screen" class="loading-screen">
+    <img src="assets/logo.webp" alt="Awake Oh Sleeper" class="loading-logo">
+    <div class="loading-text"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span><span>&nbsp;</span><span>.</span><span>.</span><span>.</span></div>
+  </div>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ===== QUICK EXIT (safety feature) ===== -->
+  <button class="quick-exit" id="quickExit" aria-label="Quick exit - hide this page">✕ ESCAPE</button>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav-logo">
+      <a href="index.html"><img src="assets/logo.webp" alt="Awake Oh Sleeper"></a>
+      <span class="nav-logo-text">AWAKE OH SLEEPER</span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="get-help.html" class="active">Get Help</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge neon-text-sm">You Are Not Alone</span>
+      <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">
+        Get <span class="highlight">Help</span> Now
+      </h1>
+      <p class="hero-subtitle">
+        Whether you're in crisis or supporting someone who is — help is available.
+        You matter. Your life matters.
+      </p>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== 988 EMERGENCY ===== -->
+  <section class="crisis-section">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">In Crisis? Call Now</span>
+        <div class="crisis-number">988</div>
+        <p class="crisis-tagline">Suicide &amp; Crisis Lifeline — Free, confidential, available 24/7</p>
+        <div class="crisis-buttons">
+          <a href="tel:988" class="crisis-btn">Call 988</a>
+          <a href="sms:988" class="crisis-btn">Text 988</a>
+          <a href="https://988lifeline.org/chat" target="_blank" rel="noopener" class="crisis-btn">Chat Online</a>
+          <a href="https://988lifeline.org" target="_blank" rel="noopener" class="crisis-btn">988lifeline.org</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== RESOURCES ===== -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Resources</span>
+        <h2 style="margin-bottom: var(--space-lg);">Mental Health &amp; Suicide Prevention<br><span class="neon-text">Support</span></h2>
+      </div>
+
+      <div class="resource-grid stagger-children">
+        <!-- 988 -->
+        <div class="resource-card">
+          <h3 class="neon-text-sm">988 Suicide &amp; Crisis Lifeline</h3>
+          <p>Free, confidential crisis support available 24/7. Call or text 988 to connect with a trained crisis counselor.</p>
+          <a href="tel:988" class="resource-link">Call 988</a> &nbsp;·&nbsp;
+          <a href="sms:988" class="resource-link">Text 988</a> &nbsp;·&nbsp;
+          <a href="https://988lifeline.org/chat" target="_blank" class="resource-link">Chat</a>
+        </div>
+
+        <!-- Crisis Response Network -->
+        <div class="resource-card">
+          <h3>Crisis Response Network</h3>
+          <p>Regional crisis response, mobile crisis teams, and community support services in Arizona.</p>
+          <a href="https://crisis.solari-inc.org/" target="_blank" rel="noopener" class="resource-link">crisis.solari-inc.org</a>
+        </div>
+
+        <!-- 211 -->
+        <div class="resource-card">
+          <h3>211 Arizona</h3>
+          <p>Crisis and emergency support, food assistance, housing, health resources, and more. Available 24/7.</p>
+          <a href="tel:211" class="resource-link">Call 2-1-1</a> &nbsp;·&nbsp;
+          <a href="https://211.org" target="_blank" rel="noopener" class="resource-link">211.org</a>
+        </div>
+      </div>
+
+      <div class="resource-grid" style="margin-top: var(--space-lg);">
+        <!-- Yavapai Resources -->
+        <div class="resource-card">
+          <h3>Yavapai County Resources</h3>
+          <p>Community resources including employment, housing, legal aid, food assistance, addiction support, and Veterans services. Includes grief support groups and Prescott Survivors of Suicide Support Group.</p>
+          <a href="https://justicementalhealth.com" target="_blank" rel="noopener" class="resource-link">justicementalhealth.com</a>
+        </div>
+
+        <!-- More Coming -->
+        <div class="resource-card" style="border-style: dashed; border-color: rgba(233, 240, 11, 0.15);">
+          <h3 style="color: var(--green-medium);">More Resources Coming Soon</h3>
+          <p>We're actively building our resource directory. Stay tuned for more local support options.</p>
+        </div>
+
+        <!-- Get Involved -->
+        <div class="resource-card" style="border-style: dashed; border-color: rgba(233, 240, 11, 0.15);">
+          <h3>Get Involved</h3>
+          <p>Volunteer, join our community, or find a local church or music group. Connection saves lives.</p>
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank" rel="noopener" class="resource-link">Follow us on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== YOU MATTER ===== -->
+  <section class="section section-darker">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;" class="reveal">
+        <h2 style="font-size: clamp(2rem, 5vw, 4rem); margin-bottom: var(--space-lg);">
+          You <span class="neon-text">Matter</span>
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+          If you're reading this and struggling — please reach out. Call 988. Text a friend.
+          Walk into a show. Stand in a crowd. Let the music remind you that you're not alone.
+        </p>
+        <p style="color: var(--accent-primary); font-size: 1.3rem; margin-top: var(--space-lg); font-family: var(--font-punk); letter-spacing: 3px;">
+          Hope is always louder.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Awake Oh Sleeper" style="width: 50px;">
+          <p>Awake Oh Sleeper Productions unites people through music, raising awareness for mental health and suicide prevention in Yavapai County.</p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="get-help.html">Get Help</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Resources</h4>
+          <a href="tel:988">Call 988</a>
+          <a href="https://988lifeline.org" target="_blank">988lifeline.org</a>
+          <a href="https://211.org" target="_blank">211.org</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Follow</h4>
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Awake Oh Sleeper Productions. All Rights Reserved.</span>
+        <span>Hope is always louder.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== QUICK EXIT SCRIPT ===== -->
+  <script>
+    // Quick Exit: redirects to a safe page
+    document.getElementById('quickExit').addEventListener('click', () => {
+      window.location.href = 'https://weather.com';
+    });
+    // Triple-ESC to trigger quick exit (safety feature)
+    let escCount = 0;
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        escCount++;
+        if (escCount >= 3) {
+          escCount = 0;
+          window.location.href = 'https://weather.com';
+        }
+        // Reset after 2 seconds
+        clearTimeout(window.escTimer);
+        window.escTimer = setTimeout(() => { escCount = 0; }, 2000);
+      } else {
+        escCount = 0;
+      }
+    });
+  </script>
+</body>
+</html>

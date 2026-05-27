@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Awake Oh Sleeper Productions</title>
+  <meta name="description" content="Our mission to raise suicide awareness through punk rock, ska, hardcore, and reggae music in Yavapai County.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/animations.js" defer></script>
+
+  <link rel="icon" type="image/webp" href="assets/logo.webp">
+</head>
+<body>
+
+  <div id="loading-screen" class="loading-screen">
+    <img src="assets/logo.webp" alt="Awake Oh Sleeper" class="loading-logo">
+    <div class="loading-text"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span><span>&nbsp;</span><span>.</span><span>.</span><span>.</span></div>
+  </div>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav-logo">
+      <a href="index.html"><img src="assets/logo.webp" alt="Awake Oh Sleeper"></a>
+      <span class="nav-logo-text">AWAKE OH SLEEPER</span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="events.html">Events</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="get-help.html">Get Help</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="hero" style="min-height: 60vh;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge neon-text-sm">Suicide Awareness Through Music</span>
+      <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">
+        Our <span class="highlight">Mission</span>
+      </h1>
+      <p class="hero-subtitle">
+        Every show is a reminder: you are not alone. Hope is always louder.
+      </p>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== FULL MISSION ===== -->
+  <section class="section section-darker">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-content reveal-left">
+          <span class="section-label">Why We Exist</span>
+          <h2 style="margin-bottom: var(--space-lg);">Uniting People Through<br><span class="neon-text">Raw Authenticity</span></h2>
+
+          <div class="mission-quote">
+            "Awake Oh Sleeper Productions exists to unite people through the energy and authenticity of punk rock, ska, hardcore, and reggae music, using live concerts as a platform to spread hope, love, and connection."
+          </div>
+
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-top: var(--space-lg);">
+            We are committed to raising awareness around mental health and suicide prevention,
+            breaking stigma, and creating spaces where people feel seen, supported, and
+            empowered to seek help. Through music, community, and access to resources, we
+            strive to remind every person that they are not alone and hope is always louder.
+          </p>
+
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-top: var(--space-md);">
+            Based in Yavapai County, Arizona, our events bring together punk, ska, reggae,
+            and hardcore communities — scenes built on solidarity, authenticity, and looking
+            out for one another. In a world that often feels isolating, we create spaces
+            where connection is inevitable.
+          </p>
+
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-top: var(--space-md);">
+            We don't preach. We don't judge. We show up, turn up the amps, and remind
+            everyone in the room that <strong style="color: var(--accent-primary);">their life matters</strong>.
+          </p>
+        </div>
+
+        <div class="reveal-right">
+          <div style="background: var(--bg-card); border: 1px solid rgba(233, 240, 11, 0.1); padding: var(--space-xl);">
+            <h3 style="font-size: 1rem; letter-spacing: 3px; color: var(--accent-primary); font-family: var(--font-mono); margin-bottom: var(--space-lg);">The Values That Drive Us</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+              <div>
+                <h4 style="font-family: var(--font-punk); font-size: 1.2rem; letter-spacing: 2px; color: var(--accent-primary); margin-bottom: var(--space-xs);">Community</h4>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Punk rock has always been about the misfits finding each other. We carry that tradition forward.</p>
+              </div>
+              <div>
+                <h4 style="font-family: var(--font-punk); font-size: 1.2rem; letter-spacing: 2px; color: var(--accent-primary); margin-bottom: var(--space-xs);">Hope</h4>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Darkness is real. But hope burns brighter. Every show, every conversation, every resource shared.</p>
+              </div>
+              <div>
+                <h4 style="font-family: var(--font-punk); font-size: 1.2rem; letter-spacing: 2px; color: var(--accent-primary); margin-bottom: var(--space-xs);">Action</h4>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Words without action are just noise. We connect people to real resources — 988, local support, community.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== FOUNDERS MESSAGE ===== -->
+  <section class="section section-dark">
+    <div class="container">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;" class="reveal">
+        <span class="section-label">A Message From the Founders</span>
+        <h2 style="margin-bottom: var(--space-lg);">Why We Do <span class="neon-text">This</span></h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-lg);">
+          "Awake Oh Sleeper" comes from the Bible — a call to rise, to wake up, to be present.
+          For us, it's a call to notice the people around you, to check in on your friends,
+          to break the silence around suicide. We've lost people. We've struggled ourselves.
+          And we've found healing in the pit, in the mosh pit, in the crowd singing along
+          to songs that make you feel less alone.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.8;">
+          This isn't a religious organization. This is a human one. Come for the music.
+          Stay for the community. Leave knowing you matter.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 988 CRISIS ===== -->
+  <section class="crisis-section">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Get Help Now</span>
+        <div class="crisis-number">988</div>
+        <p class="crisis-tagline">Suicide &amp; Crisis Lifeline — Call or Text. You Are Not Alone.</p>
+        <div class="crisis-buttons">
+          <a href="tel:988" class="crisis-btn">Call 988</a>
+          <a href="sms:988" class="crisis-btn">Text 988</a>
+          <a href="https://988lifeline.org/chat" target="_blank" rel="noopener" class="crisis-btn">Chat Online</a>
+          <a href="get-help.html" class="crisis-btn">More Resources</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Awake Oh Sleeper" style="width: 50px;">
+          <p>Awake Oh Sleeper Productions unites people through music, raising awareness for mental health and suicide prevention in Yavapai County.</p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="get-help.html">Get Help</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Resources</h4>
+          <a href="tel:988">Call 988</a>
+          <a href="https://988lifeline.org" target="_blank">988lifeline.org</a>
+          <a href="https://211.org" target="_blank">211.org</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Follow</h4>
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Awake Oh Sleeper Productions. All Rights Reserved.</span>
+        <span>Hope is always louder.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

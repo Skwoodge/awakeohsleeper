@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awake Oh Sleeper Productions — Hope Is Always Louder Than Our Struggle</title>
+  <meta name="description" content="Awake Oh Sleeper Productions unites people through punk rock, ska, hardcore, and reggae music — raising awareness for mental health and suicide prevention.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/animations.js" defer></script>
+
+  <link rel="icon" type="image/webp" href="assets/logo.webp">
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <div id="loading-screen" class="loading-screen">
+    <img src="assets/logo.webp" alt="Awake Oh Sleeper" class="loading-logo">
+    <div class="loading-text"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span><span>&nbsp;</span><span>.</span><span>.</span><span>.</span></div>
+  </div>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav-logo">
+      <a href="#home"><img src="assets/logo.webp" alt="Awake Oh Sleeper"></a>
+      <span class="nav-logo-text">AWAKE OH SLEEPER</span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#you">You Matter</a>
+      <a href="#about">Mission</a>
+      <a href="#events">Events</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#resources">Get Help</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <img src="assets/logo.webp" alt="Awake Oh Sleeper Productions" class="hero-logo">
+      <span class="hero-badge neon-text-sm">Suicide Awareness · Yavapai County</span>
+      <h1 class="hero-title">
+        Hope Is Always<br>
+        <span class="highlight">Louder</span> Than<br>
+        Our Struggle
+      </h1>
+      <p class="hero-subtitle">
+        You matter. Your life matters. Awake Oh Sleeper Productions is here because
+        punk rock, ska, hardcore, and reggae saved us — and they can save <strong>you</strong> too.
+        <strong>You are not alone.</strong>
+      </p>
+      <div class="hero-actions">
+        <a href="#events" class="btn btn-primary btn-glow">Get Tickets</a>
+        <a href="#you" class="btn btn-secondary">You Matter</a>
+        <a href="#resources" class="btn btn-secondary">Get Help</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== YOU ARE NOT ALONE (dedicated suicide awareness section) ===== -->
+  <section class="you-not-alone-section" id="you">
+    <div class="container">
+      <div class="you-not-alone-inner reveal">
+        <span class="section-label">You Are Not Alone</span>
+        <h2 style="font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: var(--space-lg);">
+          We See <span class="neon-text">You</span>.<br>
+          We Hear <span class="neon-text">You</span>.<br>
+          We Love <span class="neon-text">You</span>.
+        </h2>
+        <div class="you-message">
+          <p>
+            If you're reading this and struggling — please know that <strong>your life matters</strong>.
+            Whatever you're going through right now, you don't have to go through it alone.
+            This website, these shows, this community — it's all because someone out there
+            needs to hear that they are loved.
+          </p>
+          <p>
+            We don't have all the answers. But we have each other. And that's a start.
+            Reach out. Come to a show. Stand in a crowd of people who get it.
+            Let the music remind you that you're still here for a reason.
+          </p>
+        </div>
+        <div class="you-actions">
+          <a href="tel:988" class="btn btn-primary btn-glow" style="font-size: 1.3rem; padding: 20px 48px;">Call 988 Now</a>
+          <a href="#resources" class="btn btn-secondary">More Resources</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== ABOUT / MISSION ===== -->
+  <section class="section section-dark" id="about">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-content reveal-left">
+          <span class="section-label">Our Mission</span>
+          <h2>Music Is the<br><span class="neon-text">Weapon</span> Against Silence</h2>
+          <div class="mission-quote">
+            "Awake Oh Sleeper Productions exists to unite people through the energy and
+            authenticity of punk rock, ska, hardcore, and reggae music, using live concerts
+            as a platform to spread hope, love, and connection."
+          </div>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-lg);">
+            We are committed to raising awareness around mental health and suicide prevention,
+            breaking stigma, and creating spaces where <strong style="color: var(--accent-primary);">you</strong> feel seen, supported, and
+            empowered to seek help. Through music, community, and access to resources, we
+            are here to remind <strong style="color: var(--accent-primary);">you</strong> that <strong style="color: var(--accent-primary);">you are not alone</strong>
+            and hope is always louder than your struggle.
+          </p>
+        </div>
+        <div class="reveal-right">
+          <div class="mission-values">
+            <div class="value-item">
+              <h3 class="value-title neon-text-sm">Community</h3>
+              <p>You belong here. Punk rock has always been about the misfits finding each other — and that includes you.</p>
+            </div>
+            <div class="value-item">
+              <h3 class="value-title neon-text-sm">Hope</h3>
+              <p>Darkness is real. But hope is louder. Your story isn't over. Every show, every conversation matters.</p>
+            </div>
+            <div class="value-item">
+              <h3 class="value-title neon-text-sm">Action</h3>
+              <p>We connect you to real resources — 988, local support, and a community that gives a damn. You don't have to figure this out alone.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== FOUNDERS VIDEO ===== -->
+  <section class="section section-darker" id="founders-message">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Founders Message</span>
+        <h2 style="margin-bottom: var(--space-md);">A Message from the <span class="neon-text">Founders</span></h2>
+        <p style="color: var(--text-secondary); margin-bottom: var(--space-xl); max-width: 600px; margin-left: auto; margin-right: auto;">
+          Hear directly from the people behind Awake Oh Sleeper Productions — about why you matter, why your life matters, and why this mission is personal.
+        </p>
+      </div>
+      <div class="video-player-wrapper reveal">
+        <video controls preload="metadata" poster="assets/logo.webp" style="width: 100%; max-width: 800px; display: block; margin: 0 auto; border-radius: 4px; box-shadow: 0 0 40px rgba(233,240,11,0.1);">
+          <source src="https://img1.wsimg.com/blobby/go/8a4a9710-b6b2-4b52-ad3a-b881ec73d910/video/VIDEO-2026-04-05-18-21-22.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== EVENTS ===== -->
+  <section class="section section-dark" id="events">
+    <div class="container">
+      <div class="show-header reveal">
+        <span class="section-label">Next Show</span>
+        <h2 class="neon-text">May 30, 2026</h2>
+        <p class="show-date">Saturday Night · The Yard · Prescott, AZ</p>
+        <p class="show-time">Doors Open At 5 PM · Show Starts At 6 PM</p>
+        <p class="show-venue">All Ages Welcome · 12 &amp; Under Free</p>
+      </div>
+
+      <div id="countdown" class="countdown reveal">
+        <div class="countdown-item">
+          <span class="countdown-number" id="count-days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-item">
+          <span class="countdown-number" id="count-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-item">
+          <span class="countdown-number" id="count-minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-item">
+          <span class="countdown-number" id="count-seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <div class="band-lineup-section">
+        <h3 class="band-lineup-heading">Band Lineup</h3>
+        <div class="band-lineup">
+          <div class="band-card featured">
+            <span class="band-role">Headlining</span>
+            <div class="band-name neon-text">FAYUCA</div>
+          </div>
+          <div class="band-card">
+            <span class="band-role">Performing</span>
+            <div class="band-name">Reliance</div>
+          </div>
+          <div class="band-card">
+            <span class="band-role">Performing</span>
+            <div class="band-name">The Skavelinas</div>
+          </div>
+          <div class="band-card">
+            <span class="band-role">Performing</span>
+            <div class="band-name">The Ringtails</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticket-info reveal">
+        <div class="ticket-price">
+          $35 <span class="highlight">Advance</span>
+          <span class="ticket-price-sep">/</span>
+          $40 Door
+        </div>
+        <p class="ticket-note">Every ticket buys more than a show — it buys someone a reason to keep going. All proceeds support suicide awareness and mental health resources in Yavapai County.</p>
+        <div class="ticket-buttons">
+          <a href="https://swipesimple.com/links/lnk_5cbc651b8ed7976c9fb692aa9c07dc9a" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Buy 1 Ticket</a>
+          <a href="https://swipesimple.com/links/lnk_eac709065f8ea518b486aa5277819a99" target="_blank" rel="noopener" class="btn btn-ticket">Buy 2 Tickets</a>
+          <a href="https://swipesimple.com/links/lnk_6ae501125ba57ab838503fe39fa24853" target="_blank" rel="noopener" class="btn btn-ticket">Buy 3 Tickets</a>
+          <a href="https://swipesimple.com/links/lnk_a3710e7b4753c7f135a264307c7dcf5e" target="_blank" rel="noopener" class="btn btn-ticket">Buy 4 Tickets</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== SPONSORS ===== -->
+  <section class="section section-darker" id="sponsors">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Our Sponsors</span>
+        <h2>They Stand <span class="neon-text">With Us</span></h2>
+        <p style="color: var(--text-secondary); margin: var(--space-md) 0 var(--space-xl); max-width: 600px; margin-left: auto; margin-right: auto;">
+          Thank you to our community partners for believing in this mission.
+        </p>
+      </div>
+
+      <div class="sponsor-grid stagger-children">
+        <a href="https://granitemountaindistilleryaz.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">Granite Mountain Distillery</div></a>
+        <a href="https://pspstuccoandpaint.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">PSP Stucco &amp; Paint LLC</div></a>
+        <a href="https://raskinsjewelers.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">Raskins Jewlers</div></a>
+        <a href="https://haleyconstructionaz.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">Haley Construction</div></a>
+        <a href="https://www.sherwin-williams.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">Sherwin-Williams</div></a>
+        <a href="https://www.rwc.org/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">RWC Building Products</div></a>
+        <a href="https://www.skycitypro.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">Sky City Productions</div></a>
+        <a href="https://www.prescotttirepros.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">Prescott Tire Pros</div></a>
+        <a href="https://www.badgersdenaz.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">Badger's Den</div></a>
+        <a href="https://www.yelp.com/biz/roberts-market-place-prescott-valley" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">Roberts Marketplace</div></a>
+        <div class="sponsor-card"><div class="sponsor-name">The Pizza Place</div></div>
+        <a href="https://awrestaurants.com/locations/arizona/prescott-valley/6640-n-viewpoint-drive/" target="_blank" rel="noopener noreferrer" class="sponsor-card"><div class="sponsor-name">A&amp;W</div></a>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-xl);">
+        <a href="#sponsor-tiers" class="btn btn-secondary">Become a Sponsor</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== SPONSORSHIP TIERS ===== -->
+  <section class="section section-dark" id="sponsor-tiers">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Sponsorship</span>
+        <h2>Partner With <span class="neon-text">Purpose</span></h2>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: var(--space-md) auto var(--space-xl);">
+          Your support makes suicide awareness concerts possible.
+        </p>
+      </div>
+
+      <div class="sponsor-tiers">
+        <div class="tier-card platinum reveal-left">
+          <div class="tier-name neon-text">Platinum</div>
+          <div class="tier-price">$1,000</div>
+          <p style="color: var(--green-medium); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 2px;">(4 sponsorships remaining)</p>
+          <ul class="tier-perks">
+            <li>Logo on a 5x10 banner facing public traffic on Montezuma and Willis for one week leading up to May 30</li>
+            <li>One year of logo on banners at all upcoming shows</li>
+            <li>Outdoor shows = logo on 5x10 banner</li>
+            <li>Indoor shows = logo on large banner with all sponsors</li>
+            <li>Sponsor logo on website with link for one year</li>
+            <li>Shout outs at every show</li>
+          </ul>
+          <a href="https://swipesimple.com/links/lnk_567ff905f7ca7463546fe79753063c06" target="_blank" rel="noopener" class="btn btn-primary btn-glow" style="width: 100%; justify-content: center;">Purchase Platinum</a>
+        </div>
+        <div class="tier-card gold reveal-right">
+          <div class="tier-name" style="color: var(--green-lime);">Gold</div>
+          <div class="tier-price" style="color: var(--green-lime); text-shadow: 0 0 10px rgba(175,215,52,0.4);">$500</div>
+          <ul class="tier-perks">
+            <li>1 week advertisement before 5/30 inside The Yard (Prescott)</li>
+            <li>Sponsor logo on website with link for one year</li>
+            <li>Shout outs at every show</li>
+          </ul>
+          <a href="https://swipesimple.com/links/lnk_9036889ecc22819d08dc3825779f193b" target="_blank" rel="noopener" class="btn btn-secondary" style="width: 100%; justify-content: center; border-color: var(--green-lime); color: var(--green-lime);">Purchase Gold</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 988 CRISIS / GET HELP ===== -->
+  <section class="crisis-section" id="resources">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="crisis-heading">Get Help Now</h2>
+        <div class="crisis-number">988</div>
+        <p class="crisis-tagline">Suicide &amp; Crisis Lifeline — Free, confidential, 24/7</p>
+        <div class="crisis-buttons">
+          <a href="tel:988" class="crisis-btn">Call 988</a>
+          <a href="sms:988" class="crisis-btn">Text 988</a>
+          <a href="https://988lifeline.org/chat" target="_blank" rel="noopener" class="crisis-btn">Chat Online</a>
+          <a href="https://988lifeline.org" target="_blank" rel="noopener" class="crisis-btn">988lifeline.org</a>
+          <a href="https://211.org" target="_blank" rel="noopener" class="crisis-btn">211.org</a>
+          <a href="https://crisis.solari-inc.org/" target="_blank" rel="noopener" class="crisis-btn">Crisis Response</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== CONNECT ===== -->
+  <section class="section section-darker" id="connect">
+    <div class="container">
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Connect</span>
+        <h2>Follow the <span class="neon-text">Movement</span></h2>
+        <p style="color: var(--text-secondary); margin: var(--space-md) 0 var(--space-lg);">
+          Stay updated on shows, events, and ways to get involved.
+        </p>
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank" rel="noopener" class="btn btn-secondary">📸 Instagram</a>
+          <a href="mailto:awakeohsleeper@gmail.com" class="btn btn-secondary">✉️ Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Awake Oh Sleeper" style="width: 50px; margin-bottom: var(--space-sm);">
+          <p>Awake Oh Sleeper Productions exists to unite people through the energy and authenticity of punk rock, using live music as a platform for hope, connection, and suicide awareness.</p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Pages</h4>
+          <a href="#home">Home</a>
+          <a href="#you">You Matter</a>
+          <a href="#about">Mission</a>
+          <a href="#events">Events</a>
+          <a href="#sponsors">Sponsors</a>
+          <a href="#resources">Get Help</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Resources</h4>
+          <a href="tel:988">Call 988</a>
+          <a href="https://988lifeline.org" target="_blank">988lifeline.org</a>
+          <a href="https://211.org" target="_blank">211.org</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Follow</h4>
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Awake Oh Sleeper Productions. All Rights Reserved.</span>
+        <span>Hope is always louder.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
