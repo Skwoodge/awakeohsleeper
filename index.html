@@ -450,28 +450,9 @@ document.addEventListener('DOMContentLoaded', function() {
     return m + ':' + (s < 10 ? '0' : '') + s;
   }
 
-  // Web Audio API for reliable volume control
-  let audioCtx, gainNode, source;
-  const VOLUME = 0.15; // 15% — tame that mix
-
-  function initAudio() {
-    if (!audioCtx) {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      gainNode = audioCtx.createGain();
-      gainNode.gain.value = VOLUME;
-      source = audioCtx.createMediaElementSource(audio);
-      source.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-  }
-
   // Play/pause
   function togglePlay() {
     if (audio.paused) {
-      initAudio();
       audio.play().then(() => {
         playIcon.style.display = 'none';
         pauseIcon.style.display = '';
@@ -490,7 +471,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Try autoplay on first interaction with the page
   function tryAutoplay() {
     if (audio.paused) {
-      initAudio();
       audio.play().then(() => {
         playIcon.style.display = 'none';
         pauseIcon.style.display = '';
