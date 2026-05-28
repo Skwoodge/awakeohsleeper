@@ -336,6 +336,38 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   }
 }
 
+/* Mobile fixed Get Help button – hidden on desktop */
+.mobile-help-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-help-btn {
+    display: flex;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: var(--accent-primary);
+    color: var(--black-deep);
+    font-family: 'Bangers', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    padding: 0.8rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 0 25px rgba(233, 240, 11, 0.5), 0 0 50px rgba(233, 240, 11, 0.2);
+    animation: pulse-glow 2s ease-in-out infinite;
+    white-space: nowrap;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 25px rgba(233, 240, 11, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(233, 240, 11, 0.8), 0 0 60px rgba(233, 240, 11, 0.3); }
+}
+
 /* ── Scroll Progress Bar ── */
 #scroll-progress {
   position: fixed;
