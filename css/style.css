@@ -1091,7 +1091,10 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   transition: all var(--transition-med);
   transform-style: preserve-3d;
   will-change: transform;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
   text-decoration: none;
   color: inherit;
 }
