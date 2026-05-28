@@ -931,24 +931,36 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 }
 
 .band-lineup {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-md);
 }
 
 @media (max-width: 768px) {
   .band-lineup {
-    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  .band-card {
+    flex: 0 0 calc(50% - var(--space-sm));
+    max-width: none;
   }
 }
 
 @media (max-width: 480px) {
   .band-lineup {
-    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  .band-card {
+    flex: 0 0 100%;
+    max-width: none;
   }
 }
 
 .band-card {
+  flex: 0 0 calc((100% / 3) - var(--space-md));
+  max-width: 280px;
+  box-sizing: border-box;
   background: var(--bg-card);
   border: 1px solid rgba(233, 240, 11, 0.08);
   padding: var(--space-xl) var(--space-md);
