@@ -450,6 +450,9 @@ document.addEventListener('DOMContentLoaded', function() {
     return m + ':' + (s < 10 ? '0' : '') + s;
   }
 
+  // Set volume to half
+  audio.volume = 0.5;
+
   // Play/pause
   function togglePlay() {
     if (audio.paused) {
