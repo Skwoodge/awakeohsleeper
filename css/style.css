@@ -1387,6 +1387,75 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- Bandcamp Music Player --- */
+.music-player-section {
+  padding: var(--space-lg) 0;
+  text-align: center;
+}
+
+.music-player-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.music-player-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.music-now-playing {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green-medium);
+}
+
+.music-track {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--white-warm);
+  white-space: nowrap;
+}
+
+.music-player-embed {
+  min-width: 280px;
+  max-width: 350px;
+  border: 1px solid rgba(233, 240, 11, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.3);
+  transition: border-color 0.3s ease;
+}
+
+.music-player-embed:hover {
+  border-color: rgba(233, 240, 11, 0.25);
+}
+
+@media (max-width: 600px) {
+  .music-player-inner {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .music-player-label {
+    align-items: center;
+  }
+  .music-track {
+    white-space: normal;
+    text-align: center;
+  }
+  .music-player-embed {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 /* --- Loading Screen --- */
 .loading-screen {
   position: fixed;
