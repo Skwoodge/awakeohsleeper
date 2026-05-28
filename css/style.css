@@ -610,6 +610,15 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     0 0 42px var(--glow-green-strong);
 }
 
+@media (max-width: 768px) {
+  .hero-title .highlight {
+    text-shadow:
+      0 0 4px var(--glow-green),
+      0 0 8px var(--glow-green),
+      0 0 15px var(--glow-green);
+  }
+}
+
 .hero-subtitle {
   font-size: clamp(1rem, 2vw, 1.3rem);
   color: var(--text-secondary);
