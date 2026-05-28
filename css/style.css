@@ -1437,6 +1437,98 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   border-color: rgba(233, 240, 11, 0.25);
 }
 
+.music-player-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+  max-width: 380px;
+  padding: 6px 14px;
+  border: 1px solid rgba(233, 240, 11, 0.08);
+  border-radius: 6px;
+  background: rgba(0,0,0,0.4);
+  transition: border-color 0.3s ease;
+}
+
+.music-player-controls:hover {
+  border-color: rgba(233, 240, 11, 0.2);
+}
+
+.music-play-btn {
+  background: none;
+  border: 1px solid var(--green-neon);
+  color: var(--green-neon);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.music-play-btn:hover {
+  background: rgba(233, 240, 11, 0.15);
+  box-shadow: 0 0 12px rgba(233, 240, 11, 0.2);
+}
+
+.music-play-btn.playing {
+  background: rgba(233, 240, 11, 0.1);
+  box-shadow: 0 0 8px rgba(233, 240, 11, 0.15);
+}
+
+.music-progress {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  min-width: 60px;
+}
+
+.music-progress-bar {
+  height: 100%;
+  background: var(--green-neon);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 6px rgba(233, 240, 11, 0.3);
+}
+
+.music-time {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--green-medium);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.music-loop-btn {
+  background: none;
+  border: none;
+  color: var(--green-medium);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: color 0.2s ease;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.music-loop-btn:hover {
+  color: var(--green-neon);
+}
+
+.music-loop-btn.active {
+  color: var(--green-neon);
+  text-shadow: 0 0 8px rgba(233, 240, 11, 0.4);
+}
+
 @media (max-width: 600px) {
   .music-player-inner {
     flex-direction: column;
@@ -1450,6 +1542,11 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     text-align: center;
   }
   .music-player-embed {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .music-player-controls {
     min-width: 0;
     width: 100%;
     max-width: 100%;

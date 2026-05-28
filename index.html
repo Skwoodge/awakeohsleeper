@@ -352,7 +352,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== BANDCAMP MUSIC PLAYER ===== -->
+  <!-- ===== MUSIC PLAYER ===== -->
   <section class="music-player-section section-darker">
     <div class="container">
       <div class="music-player-inner reveal">
@@ -360,9 +360,20 @@
           <span class="music-now-playing">&#9654; Now Playing</span>
           <span class="music-track">Reliance AZ — "Desperate for Change"</span>
         </div>
-        <div class="music-player-embed">
-          <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/track=2587332084/size=small/bgcol=000000/linkcol=e9f00b/tracklist=false/artwork=none/transparent=true/autoPlay=true/" seamless allow="autoplay"></iframe>
+        <div class="music-player-controls">
+          <button class="music-play-btn" id="musicPlayBtn" aria-label="Play/pause">
+            <span class="play-icon">&#9654;</span>
+            <span class="pause-icon" style="display:none;">&#10074;&#10074;</span>
+          </button>
+          <div class="music-progress">
+            <div class="music-progress-bar" id="musicProgressBar"></div>
+          </div>
+          <span class="music-time" id="musicTime">0:00 / 2:19</span>
+          <button class="music-loop-btn" id="musicLoopBtn" aria-label="Loop" title="Loop">&#8635;</button>
         </div>
+        <audio id="bgMusic" preload="auto" loop>
+          <source src="assets/desperate-for-change.mp3" type="audio/mpeg">
+        </audio>
       </div>
     </div>
   </section>
@@ -420,5 +431,107 @@
       </div>
     </div>
   </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('bgMusic');
+  const playBtn = document.getElementById('musicPlayBtn');
+  const playIcon = playBtn.querySelector('.play-icon');
+  const pauseIcon = playBtn.querySelector('.pause-icon');
+  const progressBar = document.getElementById('musicProgressBar');
+  const progressContainer = progressBar.parentElement;
+  const timeDisplay = document.getElementById('musicTime');
+  const loopBtn = document.getElementById('musicLoopBtn');
+
+  // Format time helper
+  function formatTime(seconds) {
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  // Play/pause
+  function togglePlay() {
+    if (audio.paused) {
+      audio.play().then(() => {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = '';
+        playBtn.classList.add('playing');
+      }).catch(() => {});
+    } else {
+      audio.pause();
+      playIcon.style.display = '';
+      pauseIcon.style.display = 'none';
+      playBtn.classList.remove('playing');
+    }
+  }
+
+  playBtn.addEventListener('click', togglePlay);
+
+  // Try autoplay on first interaction with the page
+  function tryAutoplay() {
+    if (audio.paused) {
+      audio.play().then(() => {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = '';
+        playBtn.classList.add('playing');
+      }).catch(() => {});
+    }
+    document.removeEventListener('click', tryAutoplay);
+    document.removeEventListener('touchstart', tryAutoplay);
+    document.removeEventListener('scroll', tryAutoplay);
+  }
+
+  // Wait for loading screen to finish, then try
+  setTimeout(function() {
+    tryAutoplay();
+  }, 3000);
+
+  // Also try on the first user gesture anywhere on the page (fallback)
+  document.addEventListener('click', tryAutoplay, { once: true });
+  document.addEventListener('touchstart', tryAutoplay, { once: true });
+
+  // Time update
+  audio.addEventListener('timeupdate', function() {
+    if (audio.duration) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      progressBar.style.width = pct + '%';
+      timeDisplay.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+    }
+  });
+
+  // Click progress bar to seek
+  progressContainer.addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    if (audio.duration) {
+      audio.currentTime = pct * audio.duration;
+    }
+  });
+
+  // Loop toggle
+  loopBtn.addEventListener('click', function() {
+    audio.loop = !audio.loop;
+    this.classList.toggle('active');
+  });
+
+  // When audio ends (and loop is off), reset UI
+  audio.addEventListener('ended', function() {
+    if (!audio.loop) {
+      playIcon.style.display = '';
+      pauseIcon.style.display = 'none';
+      playBtn.classList.remove('playing');
+      progressBar.style.width = '0%';
+      timeDisplay.textContent = '0:00 / ' + formatTime(audio.duration);
+    }
+  });
+
+  // Show duration once loaded
+  audio.addEventListener('loadedmetadata', function() {
+    timeDisplay.textContent = '0:00 / ' + formatTime(audio.duration);
+  });
+});
+</script>
+
 </body>
 </html>
