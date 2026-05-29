@@ -314,8 +314,8 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     position: fixed;
     top: 0;
     right: -100%;
-    width: 75%;
-    max-width: 320px;
+    width: 65%;
+    max-width: 280px;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
