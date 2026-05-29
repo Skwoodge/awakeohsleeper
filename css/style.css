@@ -318,13 +318,13 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     max-width: 320px;
     height: 100vh;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     background: rgba(4, 6, 6, 0.97);
     backdrop-filter: blur(30px);
-    padding: var(--space-xl);
+    padding: 100px var(--space-xl) var(--space-xl);
     transition: right var(--transition-med);
     border-left: 1px solid rgba(233, 240, 11, 0.1);
-    gap: var(--space-xl);
+    gap: 0.6rem;
   }
 
   .nav-links.open {
