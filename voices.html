@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voices — Awake Oh Sleeper Productions</title>
+  <meta name="description" content="Stories of hope, survival, and community from the Awake Oh Sleeper community.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/animations.js" defer></script>
+
+  <link rel="icon" type="image/webp" href="assets/logo.webp">
+</head>
+<body>
+  <div id="loading-screen" class="loading-screen">
+    <img src="assets/logo.webp" alt="Awake Oh Sleeper" class="loading-logo">
+    <div class="loading-text"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span><span>&nbsp;</span><span>.</span><span>.</span><span>.</span></div>
+  </div>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav-logo">
+      <a href="index.html"><img src="assets/logo.webp" alt="Awake Oh Sleeper"></a>
+      <span class="nav-logo-text">AWAKE OH SLEEPER</span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="media.html">Media</a>
+      <a href="voices.html" class="active">Voices</a>
+      <a href="get-help.html">Get Help</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero" style="background: 
+    radial-gradient(ellipse at 50% 40%, rgba(49, 90, 24, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 60%, rgba(233, 240, 11, 0.03) 0%, transparent 50%),
+    var(--bg-primary);">
+    <div class="hero-content">
+      <span class="hero-badge neon-text-sm">Real Voices. Real Hope.</span>
+      <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">
+        <span class="highlight">Voices</span> That Refuse<br>to Be Silenced
+      </h1>
+      <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2.2vw, 1.3rem); max-width: 600px;">
+        Stories of survival, community, and the healing power of music — shared by people who found hope when they needed it most.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== TRIGGER WARNING BANNER ===== -->
+  <section class="page-section page-section-dark">
+    <div class="container">
+      <div class="trigger-banner reveal">
+        <span class="trigger-icon">⚠</span>
+        <p>These stories discuss suicide, mental health struggles, and personal loss. If you or someone you know is in crisis, help is available 24/7.</p>
+        <a href="tel:988" class="trigger-988">Call 988 Now</a>
+      </div>
+
+      <div class="section-header reveal">
+        <span class="section-label">Their Stories</span>
+        <h2>Hope Is Always <span class="neon-text">Louder</span></h2>
+        <p>Every voice here is someone who chose to share their story so others know they're not alone. Their courage reminds us why we do this.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VOICES GRID ===== -->
+  <section class="page-section page-section-darker">
+    <div class="container">
+      <div class="voices-grid">
+        <!-- Voice Card 1 (placeholder) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Card 2 (placeholder) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Card 3 (placeholder) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Card 4 (placeholder) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Card 5 (placeholder) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Card 6 (placeholder) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Card 7 (placeholder) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Card 8 (placeholder) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Card 9 - "Your Voice" (the real CTA card) -->
+        <div class="voice-card" onclick="document.getElementById('share-voice').scrollIntoView({behavior:'smooth'})" style="border-color: rgba(233, 240, 11, 0.15); border-style: dashed; cursor: pointer;">
+          <div class="voice-card-video" style="background: linear-gradient(135deg, var(--black-mid), rgba(49, 90, 24, 0.2));">
+            <div class="placeholder-thumb" style="font-size: 2rem; color: var(--accent-primary);">+</div>
+          </div>
+          <div class="voice-card-body" style="text-align: center;">
+            <div class="voice-name" style="color: var(--accent-primary);">Your Voice Here</div>
+            <div class="voice-quote" style="font-style: normal; font-size: 0.85rem;">
+              Share your story. You never know whose life it might save.
+            </div>
+            <div class="voice-meta" style="justify-content: center; border: none;">
+              <span class="voice-duration" style="color: var(--accent-primary);">Share Your Voice →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== SHARE YOUR VOICE CTA ===== -->
+  <section class="share-voice-section" id="share-voice">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">Share Your Voice</span>
+        <h2>Your Story Could <span class="neon-text">Save a Life</span></h2>
+        <p>
+          If you've been touched by this community, by these shows, or by the mission — 
+          we want to hear from you. Your voice might be exactly what someone else needs to hear tonight.
+        </p>
+        <p style="margin-top: var(--space-sm); color: var(--text-secondary); font-size: 0.85rem;">
+          Record a short video or write your story. We'll share it with our community.
+          No pressure, no judgment — just your truth.
+        </p>
+        <div style="margin-top: var(--space-lg); display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank" class="btn btn-primary">Message on Instagram</a>
+          <a href="get-help.html" class="btn btn-secondary">Need Help Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CRISIS RESOURCES ===== -->
+  <section class="page-section page-section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Crisis Resources</span>
+        <h2>You Are <span class="neon-text">Not Alone</span></h2>
+        <p>If you or someone you know is struggling, help is available right now. These resources are free, confidential, and available 24/7.</p>
+      </div>
+
+      <div class="crisis-buttons reveal" style="margin-top: var(--space-xl);">
+        <a href="tel:988" class="crisis-btn">Call 988</a>
+        <a href="sms:988" class="crisis-btn">Text 988</a>
+        <a href="https://988lifeline.org/chat" target="_blank" class="crisis-btn">Chat Online</a>
+        <a href="get-help.html" class="crisis-btn">More Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Awake Oh Sleeper" style="width: 50px;">
+          <p>Awake Oh Sleeper Productions unites people through music, raising awareness for mental health and suicide prevention in Yavapai County.</p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="media.html">Media</a>
+          <a href="voices.html">Voices</a>
+          <a href="get-help.html">Get Help</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Resources</h4>
+          <a href="tel:988">Call 988</a>
+          <a href="https://988lifeline.org" target="_blank">988lifeline.org</a>
+          <a href="https://211.org" target="_blank">211.org</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Follow</h4>
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Awake Oh Sleeper Productions. All Rights Reserved.</span>
+        <span>Hope is always louder.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== VIDEO EMBED OVERLAY ===== -->
+  <div class="voice-video-embed" id="voice-embed">
+    <div class="embed-bg" onclick="closeVoiceEmbed()"></div>
+    <button class="lightbox-close" onclick="closeVoiceEmbed()">✕</button>
+    <div class="embed-container">
+      <div class="embed-aspect">
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--black-deep);border:1px solid rgba(233,240,11,0.1);gap:1rem;font-family:var(--font-mono);color:var(--text-secondary);text-align:center;padding:2rem;">
+          <span style="font-size:2.5rem;color:var(--accent-primary);font-family:var(--font-punk);">♪</span>
+          <span>Video coming soon.</span>
+          <span style="font-size:0.75rem;color:var(--green-forest);">Recordings will be added after the event</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // ── Open voice video embed ──
+  function openVoiceEmbed(el) {
+    document.getElementById('voice-embed').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVoiceEmbed() {
+    document.getElementById('voice-embed').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    const embed = document.getElementById('voice-embed');
+    if (!embed.classList.contains('open')) return;
+    if (e.key === 'Escape') closeVoiceEmbed();
+  });
+
+  // ── GSAP scroll animations ──
+  document.addEventListener('DOMContentLoaded', function() {
+    // Stagger reveal for voice cards
+    gsap.utils.toArray('.voice-card').forEach((card, i) => {
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top 88%',
+        onEnter: () => {
+          gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: i * 0.08,
+            ease: 'power2.out',
+            onComplete: () => card.classList.add('revealed')
+          });
+        },
+        once: true,
+        invalidateOnRefresh: true
+      });
+    });
+
+    // Stagger reveal for media items on this page too (if any)
+    gsap.utils.toArray('.media-item').forEach((item, i) => {
+      ScrollTrigger.create({
+        trigger: item,
+        start: 'top 85%',
+        onEnter: () => {
+          gsap.to(item, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: i * 0.05,
+            ease: 'power2.out',
+            onComplete: () => item.classList.add('revealed')
+          });
+        },
+        once: true,
+        invalidateOnRefresh: true
+      });
+    });
+  });
+  </script>
+</body>
+</html>
