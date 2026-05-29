@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media — Awake Oh Sleeper Productions</title>
+  <meta name="description" content="Photos and videos from Awake Oh Sleeper Productions concerts and events in Prescott, Arizona.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/animations.js" defer></script>
+
+  <link rel="icon" type="image/webp" href="assets/logo.webp">
+</head>
+<body>
+  <div id="loading-screen" class="loading-screen">
+    <img src="assets/logo.webp" alt="Awake Oh Sleeper" class="loading-logo">
+    <div class="loading-text"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span><span>&nbsp;</span><span>.</span><span>.</span><span>.</span></div>
+  </div>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" role="navigation">
+    <div class="nav-logo">
+      <a href="index.html"><img src="assets/logo.webp" alt="Awake Oh Sleeper"></a>
+      <span class="nav-logo-text">AWAKE OH SLEEPER</span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="media.html" class="active">Media</a>
+      <a href="voices.html">Voices</a>
+      <a href="get-help.html">Get Help</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="hero-content">
+      <span class="hero-badge neon-text-sm">Media Gallery</span>
+      <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">
+        Moments That <span class="highlight">Matter</span>
+      </h1>
+      <p class="hero-subtitle">
+        Photos and videos from shows, events, and the community that makes this mission possible.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== FILTER BAR ===== -->
+  <section class="page-section page-section-dark">
+    <div class="container">
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="photos">Photos</button>
+        <button class="filter-btn" data-filter="videos">Videos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAY 30, 2026 — THE YARD ===== -->
+  <section class="page-section page-section-darker event-group" data-event="may30-yard">
+    <div class="container">
+      <div class="event-heading reveal">
+        <span class="event-date">May 30, 2026</span>
+        <span class="event-venue">The Yard · 214 N Montezuma St, Prescott, AZ</span>
+      </div>
+
+      <div class="media-grid reveal" data-category="photos">
+        <!-- Photo 1 -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="4/3">Photo Coming</div>
+        </div>
+
+        <!-- Photo 2 (tall) -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="3/4">Photo Coming</div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="4/3">Photo Coming</div>
+        </div>
+
+        <!-- Photo 4 (wide) -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="16/9">Photo Coming</div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="4/3">Photo Coming</div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="1/1">Photo Coming</div>
+        </div>
+
+        <!-- Photo 7 -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="4/3">Photo Coming</div>
+        </div>
+
+        <!-- Photo 8 (wide) -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="16/9">Photo Coming</div>
+        </div>
+
+        <!-- Photo 9 (square) -->
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="1/1">Photo Coming</div>
+        </div>
+      </div>
+
+      <!-- Videos from this event -->
+      <div class="media-grid two-col reveal" data-category="videos" style="margin-top: var(--space-xl);">
+        <div class="media-item video-thumb" data-type="video" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="16/9">Video Coming</div>
+        </div>
+
+        <div class="media-item video-thumb" data-type="video" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="16/9">Video Coming</div>
+        </div>
+
+        <div class="media-item video-thumb" data-type="video" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="16/9">Video Coming</div>
+        </div>
+
+        <div class="media-item video-thumb" data-type="video" onclick="openLightbox(this)">
+          <div class="media-placeholder" data-ratio="16/9">Video Coming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== PAST EVENTS (placeholder) ===== -->
+  <section class="page-section page-section-dark event-group">
+    <div class="container">
+      <div class="event-heading reveal">
+        <span class="event-date">More Events</span>
+        <span class="event-venue">Coming Soon</span>
+      </div>
+      <div class="empty-state reveal">
+        <div class="empty-icon">♪</div>
+        <h3>More Shows on the Way</h3>
+        <p>Photos and videos from past and future events will appear here as the community grows. Check back after the May 30 show at The Yard!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.webp" alt="Awake Oh Sleeper" style="width: 50px;">
+          <p>Awake Oh Sleeper Productions unites people through music, raising awareness for mental health and suicide prevention in Yavapai County.</p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="sponsors.html">Sponsors</a>
+          <a href="media.html">Media</a>
+          <a href="voices.html">Voices</a>
+          <a href="get-help.html">Get Help</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Resources</h4>
+          <a href="tel:988">Call 988</a>
+          <a href="https://988lifeline.org" target="_blank">988lifeline.org</a>
+          <a href="https://211.org" target="_blank">211.org</a>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Follow</h4>
+          <a href="https://www.instagram.com/awakeohsleeper26" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Awake Oh Sleeper Productions. All Rights Reserved.</span>
+        <span>Hope is always louder.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-bg" onclick="closeLightbox()"></div>
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">‹</button>
+    <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">›</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+  // ── Filter toggle ──
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const mediaItems = document.querySelectorAll('.media-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.dataset.filter;
+
+        mediaItems.forEach(item => {
+          if (filter === 'all') {
+            item.classList.remove('filter-hidden');
+          } else if (filter === 'photos' && item.dataset.type === 'photo') {
+            item.classList.remove('filter-hidden');
+          } else if (filter === 'videos' && item.dataset.type === 'video') {
+            item.classList.remove('filter-hidden');
+          } else {
+            item.classList.add('filter-hidden');
+          }
+        });
+
+        // Re-trigger animations for visible items after filter
+        gsap.fromTo('.media-item:not(.filter-hidden)', 
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: 'power2.out' }
+        );
+      });
+    });
+  });
+
+  // ── Lightbox ──
+  let lightboxItems = [];
+  let currentIndex = 0;
+
+  function openLightbox(el) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+
+    // Gather visible items of the same type in the same grid
+    const grid = el.closest('.media-grid');
+    if (grid) {
+      const filter = document.querySelector('.filter-btn.active');
+      const activeFilter = filter ? filter.dataset.filter : 'all';
+      const items = grid.querySelectorAll('.media-item:not(.filter-hidden)');
+      lightboxItems = Array.from(items);
+      currentIndex = lightboxItems.indexOf(el);
+    } else {
+      lightboxItems = [el];
+      currentIndex = 0;
+    }
+
+    updateLightbox();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateLightbox() {
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    const item = lightboxItems[currentIndex];
+
+    if (item.dataset.type === 'video') {
+      // For videos, show a placeholder in lightbox
+      const placeholder = item.querySelector('.media-placeholder');
+      img.style.display = 'none';
+      if (!document.querySelector('.lightbox-video-placeholder')) {
+        const vp = document.createElement('div');
+        vp.className = 'lightbox-video-placeholder';
+        vp.style.cssText = 'width:100%;max-width:800px;aspect-ratio:16/9;background:var(--black-deep);display:flex;align-items:center;justify-content:center;flex-direction:column;border:1px solid rgba(233,240,11,0.1);font-family:var(--font-mono);color:var(--text-secondary);gap:1rem;';
+        vp.innerHTML = '<span style="font-size:3rem;color:var(--accent-primary);font-family:var(--font-punk);">▶</span><span>Video embed coming after the show</span>';
+        document.querySelector('.lightbox-content').prepend(vp);
+      }
+    } else {
+      img.style.display = '';
+      const vp = document.querySelector('.lightbox-video-placeholder');
+      if (vp) vp.remove();
+      // Keep placeholder since no real images yet
+      img.style.display = 'none';
+      if (!document.querySelector('.lightbox-photo-placeholder')) {
+        const pp = document.createElement('div');
+        pp.className = 'lightbox-photo-placeholder';
+        pp.style.cssText = 'width:100%;max-width:700px;aspect-ratio:4/3;background:linear-gradient(135deg,var(--black-mid),rgba(49,90,24,0.15));display:flex;align-items:center;justify-content:center;border:1px solid rgba(233,240,11,0.08);font-family:var(--font-mono);color:var(--green-forest);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;';
+        pp.textContent = 'Photo Coming After the Show';
+        document.querySelector('.lightbox-content').prepend(pp);
+      }
+    }
+
+    const captionEl = item.querySelector('.media-caption');
+    if (captionEl) {
+      const strong = captionEl.querySelector('strong');
+      const span = captionEl.querySelector('span');
+      caption.textContent = (strong ? strong.textContent + ' — ' : '') + (span ? span.textContent : '');
+    } else {
+      caption.textContent = '';
+    }
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+    const vp = document.querySelector('.lightbox-video-placeholder');
+    if (vp) vp.remove();
+    const pp = document.querySelector('.lightbox-photo-placeholder');
+    if (pp) pp.remove();
+    document.getElementById('lightbox-img').style.display = '';
+  }
+
+  function navigateLightbox(dir) {
+    currentIndex += dir;
+    if (currentIndex < 0) currentIndex = lightboxItems.length - 1;
+    if (currentIndex >= lightboxItems.length) currentIndex = 0;
+    updateLightbox();
+  }
+
+  // Keyboard support
+  document.addEventListener('keydown', function(e) {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+  });
+
+  // ── GSAP scroll animations ──
+  document.addEventListener('DOMContentLoaded', function() {
+    // Stagger reveal for media items
+    gsap.utils.toArray('.media-grid > .media-item').forEach((item, i) => {
+      ScrollTrigger.create({
+        trigger: item,
+        start: 'top 85%',
+        onEnter: () => {
+          gsap.to(item, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            delay: i * 0.05,
+            ease: 'power2.out',
+            onComplete: () => item.classList.add('revealed')
+          });
+        },
+        once: true,
+        invalidateOnRefresh: true
+      });
+    });
+  });
+  </script>
+</body>
+</html>
