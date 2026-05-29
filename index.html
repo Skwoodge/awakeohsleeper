@@ -19,49 +19,6 @@
   <script src="js/animations.js" defer></script>
 
   <link rel="icon" type="image/webp" href="assets/logo.webp">
-
-  <style>
-  /* ── Strip Glitch Effect ── */
-  .vhs-glitch {
-    position: relative;
-    display: block;
-    max-width: 400px;
-    width: 80%;
-    margin: 0 auto var(--space-lg);
-    overflow: hidden;
-  }
-
-  .glitch-strips {
-    position: relative;
-    width: 100%;
-  }
-
-  .glitch-strip {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    background-image: url('assets/logo.webp');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    will-change: transform;
-  }
-
-  /* ── CRT scanlines (always on, subtle) ── */
-  .vhs-scanlines {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent, transparent 2px,
-      rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px
-    );
-  }
-
-  /* ── CRT scanlines (always on, subtle) ── */
-  </style>
 </head>
 <body>
   <div id="scroll-progress"></div>
@@ -100,9 +57,8 @@
   <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-logo vhs-glitch" id="glitch-logo">
-        <div class="glitch-strips" id="glitch-strips"></div>
-        <div class="vhs-scanlines"></div>
+      <div class="hero-logo">
+        <img src="assets/logo.webp" alt="Awake Oh Sleeper">
       </div>
       <span class="hero-badge neon-text-sm">Mental Health Awareness &amp; Suicide Prevention</span>
       <h1 class="hero-title">
@@ -459,142 +415,8 @@
   </footer>
 
   <script>
-  // ── Glitch Effect (muffinman strip technique) ──
-  (function() {
-    const container = document.getElementById('glitch-strips');
-    const flash = document.getElementById('glitch-flash');
-    if (!container) return;
-
-    // These will be set once image loads
-    let imgNaturalWidth, imgNaturalHeight;
-    let stripElements = [];
-    let initialized = false;
-
-    function initGlitch() {
-      if (initialized) return;
-
-      const containerWidth = container.offsetWidth;
-      // Aspect ratio of the logo: 1385 / 1136 ≈ 1.219
-      // The container width determines the height
-      const aspectRatio = 1385 / 1136;
-      const renderingHeight = containerWidth / aspectRatio;
-
-      container.style.height = renderingHeight + 'px';
-
-      // Slice into strips of random height
-      const minStripH = 8;
-      const maxStripH = 24;
-      let offset = 0;
-      let stripIndex = 0;
-      const strips = [];
-
-      // Generate strip definitions
-      while (offset < renderingHeight) {
-        const stripHeight = Math.min(
-          minStripH + Math.floor(Math.random() * (maxStripH - minStripH + 1)),
-          renderingHeight - offset
-        );
-        const bgOffsetY = offset;
-
-        strips.push({
-          top: offset,
-          height: stripHeight,
-          bgOffset: bgOffsetY,
-          index: stripIndex
-        });
-
-        offset += stripHeight;
-        stripIndex++;
-      }
-
-      // Generate style tag with unique keyframes for each strip
-      const styleTag = document.createElement('style');
-      let css = '';
-
-      strips.forEach(function(s) {
-        // Random displacement amount (pixels at rendered size)
-        const maxDisplace = 4 + Math.random() * 12; // 4-16px
-        const displacePx = (maxDisplace / containerWidth) * 100; // as percentage of width
-
-        // Random animation duration (5-9 seconds)
-        const duration = 5 + Math.random() * 4;
-
-        // Three glitch moments per cycle, with random snap amounts
-        const moments = [];
-        for (let m = 0; m < 3; m++) {
-          const t = 15 + Math.random() * 75; // percent into the animation
-          const d = (2 + Math.random() * 10); // snap duration (percent)
-          const x = (Math.random() < 0.5 ? -1 : 1) * (2 + Math.random() * displacePx);
-          const hue = Math.floor(Math.random() * 60) - 30; // -30 to +30 deg hue shift
-          moments.push({ time: t, duration: d, x: x, hue: hue });
-        }
-
-        moments.sort(function(a, b) { return a.time - b.time; });
-
-        // Build keyframes
-        const name = 'glitch-strip-' + s.index;
-        css += '@keyframes ' + name + ' {\n';
-        css += '  0%, 100% { transform: translateX(0); filter: none; }\n';
-
-        moments.forEach(function(m) {
-          const t0 = m.time;
-          const t1 = m.time + 0.1;  // snap ON (super short)
-          const t2 = m.time + m.duration - 0.1; // hold
-          const t3 = m.time + m.duration; // snap OFF
-
-          css += '  ' + t0 + '% { transform: translateX(0); filter: none; }\n';
-          css += '  ' + t1 + '% { transform: translateX(' + m.x + '%); filter: hue-rotate(' + m.hue + 'deg); }\n';
-          css += '  ' + t2 + '% { transform: translateX(' + m.x + '%); filter: hue-rotate(' + m.hue + 'deg); }\n';
-          css += '  ' + t3 + '% { transform: translateX(0); filter: none; }\n';
-        });
-
-        css += '}\n';
-
-        // The strip element
-        const stripDiv = document.createElement('div');
-        stripDiv.className = 'glitch-strip';
-        stripDiv.style.cssText =
-          'top:' + s.top + 'px;' +
-          'height:' + s.height + 'px;' +
-          'background-position:0 -' + s.bgOffset + 'px;' +
-          'animation:' + name + ' ' + duration + 's ease infinite !important;';
-
-        strips[s.index].element = stripDiv;
-        strips[s.index].name = name;
-      });
-
-      styleTag.textContent = css;
-      document.head.appendChild(styleTag);
-
-      // Now insert all strip elements
-      strips.forEach(function(s) {
-        container.appendChild(s.element);
-      });
-
-      stripElements = strips;
-      initialized = true;
-    }
-
-    // Wait for the image to load and get its natural dimensions
-    const img = new Image();
-    img.onload = function() {
-      imgNaturalWidth = img.naturalWidth;
-      imgNaturalHeight = img.naturalHeight;
-      // Give the container a moment to render and get its width
-      setTimeout(initGlitch, 50);
-    };
-    img.src = 'assets/logo.webp';
-
-    // Backup: try again on resize
-    window.addEventListener('resize', function() {
-      if (initialized) {
-        // Just update container height
-        const containerWidth = container.offsetWidth;
-        const aspectRatio = 1385 / 1136;
-        container.style.height = (containerWidth / aspectRatio) + 'px';
-      }
-    });
-  })();
+  // ── Custom JS placeholder ──
+  console.log('Awake Oh Sleeper loaded.');
   </script>
 </body>
 </html>
