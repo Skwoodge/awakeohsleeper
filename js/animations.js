@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---- 6. COUNTDOWN TIMER ---- */
   const countdownEl = document.getElementById('countdown');
   if (countdownEl) {
-    const targetDate = new Date(2026, 4, 30).getTime();
+    const targetDate = new Date(2026, 4, 30, 18, 0, 0).getTime();
     function updateCountdown() {
       const diff = Math.max(0, targetDate - new Date().getTime());
       document.getElementById('count-days').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
