@@ -245,7 +245,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 
 .nav-links a {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--text-secondary);
@@ -581,7 +581,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 
 .hero-badge {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 4px;
   color: var(--accent-primary);
