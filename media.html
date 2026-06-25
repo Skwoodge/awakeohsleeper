@@ -84,49 +84,59 @@
       </div>
 
       <div class="media-grid reveal" data-category="photos">
-        <!-- Photo 1 -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="4/3">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07301.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
-
-        <!-- Photo 2 (tall) -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="3/4">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07310.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
-
-        <!-- Photo 3 -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="4/3">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07320.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
-
-        <!-- Photo 4 (wide) -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="16/9">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07345.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
-
-        <!-- Photo 5 -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="4/3">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07365.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
-
-        <!-- Photo 6 -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="1/1">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07413.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
-
-        <!-- Photo 7 -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="4/3">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07427.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
-
-        <!-- Photo 8 (wide) -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="16/9">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07429.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
-
-        <!-- Photo 9 (square) -->
         <div class="media-item" data-type="photo" onclick="openLightbox(this)">
-          <div class="media-placeholder" data-ratio="1/1">Photo Coming</div>
+          <img class="media-photo" src="media/DSC07445.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07461.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07479.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07484.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07500.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07508.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07510.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07514.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07519.jpg" alt="May 30 show at The Yard" loading="lazy">
+        </div>
+        <div class="media-item" data-type="photo" onclick="openLightbox(this)">
+          <img class="media-photo" src="media/DSC07542.jpg" alt="May 30 show at The Yard" loading="lazy">
         </div>
       </div>
 
@@ -281,9 +291,12 @@
     const caption = document.getElementById('lightbox-caption');
     const item = lightboxItems[currentIndex];
 
+    // Clean up any leftover placeholder elements
+    const oldVp = document.querySelector('.lightbox-video-placeholder');
+    if (oldVp) oldVp.remove();
+
     if (item.dataset.type === 'video') {
       // For videos, show a placeholder in lightbox
-      const placeholder = item.querySelector('.media-placeholder');
       img.style.display = 'none';
       if (!document.querySelector('.lightbox-video-placeholder')) {
         const vp = document.createElement('div');
@@ -293,17 +306,14 @@
         document.querySelector('.lightbox-content').prepend(vp);
       }
     } else {
-      img.style.display = '';
-      const vp = document.querySelector('.lightbox-video-placeholder');
-      if (vp) vp.remove();
-      // Keep placeholder since no real images yet
-      img.style.display = 'none';
-      if (!document.querySelector('.lightbox-photo-placeholder')) {
-        const pp = document.createElement('div');
-        pp.className = 'lightbox-photo-placeholder';
-        pp.style.cssText = 'width:100%;max-width:700px;aspect-ratio:4/3;background:linear-gradient(135deg,var(--black-mid),rgba(49,90,24,0.15));display:flex;align-items:center;justify-content:center;border:1px solid rgba(233,240,11,0.08);font-family:var(--font-mono);color:var(--green-forest);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;';
-        pp.textContent = 'Photo Coming After the Show';
-        document.querySelector('.lightbox-content').prepend(pp);
+      // Show the real photo
+      const photo = item.querySelector('.media-photo');
+      if (photo) {
+        img.src = photo.src;
+        img.alt = photo.alt;
+        img.style.display = '';
+      } else {
+        img.style.display = 'none';
       }
     }
 
@@ -322,8 +332,6 @@
     document.body.style.overflow = '';
     const vp = document.querySelector('.lightbox-video-placeholder');
     if (vp) vp.remove();
-    const pp = document.querySelector('.lightbox-photo-placeholder');
-    if (pp) pp.remove();
     document.getElementById('lightbox-img').style.display = '';
   }
 
