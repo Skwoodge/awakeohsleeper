@@ -257,9 +257,6 @@
 /* ── Video embed (MEGA iframes) ── */
 .media-item.video-embed {
   position: relative;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .video-embed-wrapper {
