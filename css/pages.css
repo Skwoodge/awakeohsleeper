@@ -257,12 +257,15 @@
 /* ── Video embed (MEGA iframes) ── */
 .media-item.video-embed {
   position: relative;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .video-embed-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 177.78%; /* 9:16 portrait */
+  aspect-ratio: 9 / 16;
   overflow: hidden;
   background: var(--black-deep);
 }
