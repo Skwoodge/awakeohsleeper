@@ -1472,6 +1472,137 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   }
 }
 
+/* ═══════════════════════════════════════════════════
+   ENHANCED BUTTON GLOW — Hero CTA Pulse
+   ═══════════════════════════════════════════════════ */
+
+.btn-ticket {
+  position: relative;
+  overflow: visible;
+}
+
+/* Pulsing ring around the ticket button */
+.btn-ticket::before {
+  content: '';
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border: 2px solid var(--accent-primary);
+  border-radius: 6px;
+  opacity: 0;
+  animation: ring-pulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ring-pulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.04);
+  }
+}
+
+/* Bigger glow pulse on the ticket button */
+.btn-ticket.btn-glow {
+  animation: ticket-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ticket-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px var(--glow-green),
+      0 0 40px rgba(233, 240, 11, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 30px var(--glow-green-strong),
+      0 0 60px var(--glow-green),
+      0 0 100px rgba(233, 240, 11, 0.1);
+  }
+}
+
+/* Floating arrow on ticket buttons */
+.btn-ticket .btn-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 1.2em;
+  animation: arrow-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+/* ═══════════════════════════════════════════════════
+   EVENTS PAGE — Section Transitions
+   ═══════════════════════════════════════════════════ */
+
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green-forest), var(--accent-primary), var(--green-forest), transparent);
+  opacity: 0.4;
+  transition: opacity 0.6s ease;
+}
+
+.section-divider.animated {
+  opacity: 1;
+}
+
+/* Staggered reveal for children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+}
+
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 0.25s; }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 0.4s; }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 0.55s; }
+
+.stagger-children.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced band cards */
+.band-card {
+  transition: all 0.4s var(--ease-smooth);
+  border: 1px solid rgba(233, 240, 11, 0.05);
+}
+
+.band-card:hover {
+  border-color: rgba(233, 240, 11, 0.3);
+  box-shadow: 0 0 30px rgba(233, 240, 11, 0.15), 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.band-card.featured {
+  border-color: rgba(233, 240, 11, 0.2);
+}
+
+.band-card.featured:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 40px rgba(233, 240, 11, 0.25), 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* Countdown number color shift */
+.countdown-number.tick {
+  animation: number-flash 0.3s ease-out;
+}
+
+@keyframes number-flash {
+  0% { color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.8); }
+  100% { color: var(--accent-primary); text-shadow: 0 0 10px var(--glow-green); }
+}
+
+/* Hero parallax depth */
+.hero-parallax {
+  will-change: transform;
+}
+
 /* --- Reduced Motion --- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

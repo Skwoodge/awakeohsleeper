@@ -162,4 +162,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     cycleHue();
   }
+
+  /* ---- 13. SECTION DIVIDER ANIMATION ---- */
+  const dividerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.section-divider').forEach(el => dividerObserver.observe(el));
+
+  /* ---- 14. HERO PARALLAX ON SCROLL ---- */
+  const heroParallax = document.querySelector('.hero-parallax');
+  if (heroParallax) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      heroParallax.style.transform = `translateY(${scrollY * 0.3}px)`;
+    }, { passive: true });
+  }
 });
