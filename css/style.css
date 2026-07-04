@@ -953,6 +953,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   .band-card {
     flex: 0 0 calc(50% - var(--space-sm));
     max-width: none;
+    padding: var(--space-lg) var(--space-sm);
   }
 }
 
@@ -961,8 +962,12 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     gap: var(--space-sm);
   }
   .band-card {
-    flex: 0 0 100%;
+    flex: 0 0 calc(50% - var(--space-sm));
     max-width: none;
+    padding: var(--space-lg) var(--space-sm);
+  }
+  .band-card .band-name {
+    font-size: 1rem;
   }
 }
 
