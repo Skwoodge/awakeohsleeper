@@ -946,6 +946,30 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   gap: var(--space-md);
 }
 
+.band-card {
+  flex: 0 0 calc((100% / 3) - var(--space-md));
+  max-width: 280px;
+  box-sizing: border-box;
+  background: var(--bg-card);
+  border: 1px solid rgba(233, 240, 11, 0.08);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  transition: all var(--transition-med);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.band-card .band-name {
+  font-size: 1.3rem;
+}
+
+.band-card.featured .band-name {
+  font-size: 1.6rem;
+}
+
 @media (max-width: 768px) {
   .band-lineup {
     gap: var(--space-sm);
@@ -954,6 +978,12 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     flex: 0 0 calc(50% - var(--space-sm));
     max-width: none;
     padding: var(--space-lg) var(--space-sm);
+  }
+  .band-card .band-name {
+    font-size: 1.1rem;
+  }
+  .band-card.featured .band-name {
+    font-size: 1.3rem;
   }
 }
 
@@ -969,22 +999,9 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   .band-card .band-name {
     font-size: 1rem;
   }
-}
-
-.band-card {
-  flex: 0 0 calc((100% / 3) - var(--space-md));
-  max-width: 280px;
-  box-sizing: border-box;
-  background: var(--bg-card);
-  border: 1px solid rgba(233, 240, 11, 0.08);
-  padding: var(--space-xl) var(--space-md);
-  text-align: center;
-  transition: all var(--transition-med);
-  position: relative;
-  overflow: hidden;
-  cursor: default;
-  transform-style: preserve-3d;
-  will-change: transform;
+  .band-card.featured .band-name {
+    font-size: 1.15rem;
+  }
 }
 
 .band-card::before {
