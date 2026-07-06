@@ -1147,7 +1147,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 .tier-card {
   background: var(--bg-card);
   border: 1px solid rgba(233, 240, 11, 0.1);
-  padding: var(--space-xl) var(--space-xl) calc(var(--space-xl) + 8px);
+  padding: var(--space-xl) var(--space-xl) calc(var(--space-xl) + 12px);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1189,7 +1189,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 
 /* Diagonal corner ribbon — text centered */
 .tier-card.platinum::after {
-  content: '★ BEST VALUE';
+  content: 'BEST VALUE';
   position: absolute;
   top: 14px;
   right: -28px;
@@ -1221,17 +1221,22 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 
 .tier-name {
   font-family: var(--font-punk);
-  font-size: 2.2rem;
-  letter-spacing: 3px;
-  margin-bottom: var(--space-sm);
+  font-size: 2.6rem;
+  letter-spacing: 4px;
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
 }
 
 .tier-price {
   font-family: var(--font-heading);
-  font-size: 3.2rem;
+  font-size: 4rem;
   color: var(--accent-primary);
-  text-shadow: 0 0 15px var(--glow-green), 0 0 30px rgba(233, 240, 11, 0.2);
-  margin-bottom: var(--space-lg);
+  text-shadow:
+    0 0 10px var(--glow-green),
+    0 0 20px var(--glow-green),
+    0 0 40px var(--glow-green-strong),
+    0 0 80px rgba(233, 240, 11, 0.15);
+  margin-bottom: var(--space-xl);
 }
 
 .tier-perks {
@@ -1240,13 +1245,14 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 }
 
 .tier-perks li {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(233, 240, 11, 0.05);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(233, 240, 11, 0.08);
   display: flex;
   align-items: flex-start;
   gap: var(--space-sm);
+  line-height: 1.5;
 }
 
 .tier-perks li::before {
