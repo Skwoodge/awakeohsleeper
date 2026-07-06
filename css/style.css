@@ -1142,6 +1142,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-xl);
   margin-top: var(--space-xl);
+  align-items: start;
 }
 
 .tier-card {
@@ -1155,8 +1156,8 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 }
 
 .tier-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 40px rgba(233, 240, 11, 0.15), 0 12px 40px rgba(0,0,0,0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 0 40px rgba(233, 240, 11, 0.15), 0 16px 48px rgba(0,0,0,0.4);
 }
 
 /* Gradient top bar on all tier cards */
@@ -1170,24 +1171,45 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   background: linear-gradient(90deg, transparent, var(--green-medium), transparent);
 }
 
+/* ── PLATINUM — Featured card ── */
 .tier-card.platinum {
-  border-color: rgba(233, 240, 11, 0.3);
+  border-color: rgba(233, 240, 11, 0.35);
   box-shadow: 0 0 30px var(--glow-green);
   animation: tier-glow 3s ease-in-out infinite;
-  padding-top: calc(var(--space-xl) + 12px);
+  padding-top: calc(var(--space-xl) + 16px);
+  padding-bottom: calc(var(--space-xl) + 20px);
+  background:
+    radial-gradient(ellipse at center 40%, rgba(233, 240, 11, 0.06) 0%, transparent 70%),
+    var(--bg-card);
 }
 
-/* Platinum subtle radial glow background */
-.tier-card.platinum .tier-name {
-  position: relative;
+/* Animated border pulse on platinum */
+.tier-card.platinum::before {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+  animation: border-pulse 2s ease-in-out infinite;
+}
+
+@keyframes border-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 @keyframes tier-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(233, 240, 11, 0.15); }
-  50% { box-shadow: 0 0 40px rgba(233, 240, 11, 0.3), 0 0 80px rgba(233, 240, 11, 0.1); }
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(233, 240, 11, 0.15),
+      inset 0 0 30px rgba(233, 240, 11, 0.02);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(233, 240, 11, 0.3),
+      0 0 80px rgba(233, 240, 11, 0.1),
+      inset 0 0 40px rgba(233, 240, 11, 0.03);
+  }
 }
 
-/* Diagonal corner ribbon — text centered */
+/* Diagonal corner ribbon */
 .tier-card.platinum::after {
   content: 'BEST VALUE';
   position: absolute;
@@ -1207,6 +1229,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   white-space: nowrap;
 }
 
+/* ── GOLD ── */
 .tier-card.gold {
   border-color: rgba(175, 215, 52, 0.15);
 }
@@ -1237,6 +1260,13 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     0 0 40px var(--glow-green-strong),
     0 0 80px rgba(233, 240, 11, 0.15);
   margin-bottom: var(--space-xl);
+}
+
+.tier-card.gold .tier-price {
+  color: var(--green-lime);
+  text-shadow:
+    0 0 10px rgba(175, 215, 52, 0.4),
+    0 0 20px rgba(175, 215, 52, 0.2);
 }
 
 .tier-perks {
