@@ -1176,18 +1176,16 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   border-color: rgba(233, 240, 11, 0.35);
   box-shadow: 0 0 30px var(--glow-green);
   animation: tier-glow 3s ease-in-out infinite;
-  padding-top: calc(var(--space-xl) + 16px);
+  padding-top: calc(var(--space-xl) + 24px);
   padding-bottom: calc(var(--space-xl) + 20px);
   background:
     radial-gradient(ellipse at center 40%, rgba(233, 240, 11, 0.06) 0%, transparent 70%),
     var(--bg-card);
 }
 
-/* Animated border pulse on platinum */
+/* Animated border pulse on platinum — skip since BEST VALUE bar replaces top edge */
 .tier-card.platinum::before {
-  height: 4px;
-  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-  animation: border-pulse 2s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes border-pulse {
@@ -1209,24 +1207,22 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   }
 }
 
-/* Diagonal corner ribbon */
+/* BEST VALUE full-width bar */
 .tier-card.platinum::after {
   content: 'BEST VALUE';
   position: absolute;
-  top: 14px;
-  right: -34px;
+  top: 0;
+  left: 0;
+  right: 0;
   background: var(--accent-primary);
   color: var(--black-deep);
   font-family: var(--font-heading);
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 2px;
-  padding: 5px 28px;
-  transform: rotate(35deg);
-  transform-origin: center center;
+  letter-spacing: 3px;
+  padding: 6px 0;
   text-align: center;
   line-height: 1;
-  white-space: nowrap;
 }
 
 /* ── GOLD ── */
