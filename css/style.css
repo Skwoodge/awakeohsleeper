@@ -1151,29 +1151,60 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   text-align: center;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s var(--ease-smooth);
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px rgba(233, 240, 11, 0.15), 0 12px 40px rgba(0,0,0,0.3);
 }
 
 .tier-card.platinum {
-  border-color: rgba(233, 240, 11, 0.25);
+  border-color: rgba(233, 240, 11, 0.3);
   box-shadow: 0 0 30px var(--glow-green);
+  animation: tier-glow 3s ease-in-out infinite;
+}
+
+@keyframes tier-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(233, 240, 11, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(233, 240, 11, 0.3), 0 0 80px rgba(233, 240, 11, 0.1); }
+}
+
+.tier-card.platinum::after {
+  content: '★ BEST VALUE';
+  position: absolute;
+  top: 12px;
+  right: -30px;
+  background: var(--accent-primary);
+  color: var(--black-deep);
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 4px 40px;
+  transform: rotate(35deg);
 }
 
 .tier-card.gold {
   border-color: rgba(175, 215, 52, 0.15);
 }
 
+.tier-card.gold:hover {
+  border-color: rgba(175, 215, 52, 0.4);
+}
+
 .tier-name {
   font-family: var(--font-punk);
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   letter-spacing: 3px;
   margin-bottom: var(--space-sm);
 }
 
 .tier-price {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 3.2rem;
   color: var(--accent-primary);
-  text-shadow: 0 0 10px var(--glow-green);
+  text-shadow: 0 0 15px var(--glow-green), 0 0 30px rgba(233, 240, 11, 0.2);
   margin-bottom: var(--space-lg);
 }
 
@@ -1183,9 +1214,9 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 }
 
 .tier-perks li {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px solid rgba(233, 240, 11, 0.05);
   display: flex;
   align-items: flex-start;
