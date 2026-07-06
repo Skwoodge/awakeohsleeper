@@ -1173,16 +1173,17 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 .tier-card.platinum::after {
   content: '★ BEST VALUE';
   position: absolute;
-  top: 12px;
-  right: -30px;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
   background: var(--accent-primary);
   color: var(--black-deep);
   font-family: var(--font-heading);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 2px;
-  padding: 4px 40px;
-  transform: rotate(35deg);
+  padding: 5px 20px;
+  white-space: nowrap;
 }
 
 .tier-card.gold {
