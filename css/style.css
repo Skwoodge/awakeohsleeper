@@ -1147,7 +1147,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 .tier-card {
   background: var(--bg-card);
   border: 1px solid rgba(233, 240, 11, 0.1);
-  padding: var(--space-xl);
+  padding: var(--space-xl) var(--space-xl) calc(var(--space-xl) + 8px);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1159,10 +1159,27 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   box-shadow: 0 0 40px rgba(233, 240, 11, 0.15), 0 12px 40px rgba(0,0,0,0.3);
 }
 
+/* Gradient top bar on all tier cards */
+.tier-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--green-medium), transparent);
+}
+
 .tier-card.platinum {
   border-color: rgba(233, 240, 11, 0.3);
   box-shadow: 0 0 30px var(--glow-green);
   animation: tier-glow 3s ease-in-out infinite;
+  padding-top: calc(var(--space-xl) + 12px);
+}
+
+/* Platinum subtle radial glow background */
+.tier-card.platinum .tier-name {
+  position: relative;
 }
 
 @keyframes tier-glow {
@@ -1170,24 +1187,32 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
   50% { box-shadow: 0 0 40px rgba(233, 240, 11, 0.3), 0 0 80px rgba(233, 240, 11, 0.1); }
 }
 
+/* Diagonal corner ribbon — text centered */
 .tier-card.platinum::after {
   content: '★ BEST VALUE';
   position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 16px;
+  right: -35px;
   background: var(--accent-primary);
   color: var(--black-deep);
   font-family: var(--font-heading);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 2px;
-  padding: 5px 20px;
+  padding: 5px 40px;
+  transform: rotate(35deg);
+  transform-origin: center center;
+  text-align: center;
+  line-height: 1;
   white-space: nowrap;
 }
 
 .tier-card.gold {
   border-color: rgba(175, 215, 52, 0.15);
+}
+
+.tier-card.gold::before {
+  background: linear-gradient(90deg, transparent, var(--green-lime), transparent);
 }
 
 .tier-card.gold:hover {
