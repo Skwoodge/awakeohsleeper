@@ -392,6 +392,15 @@
         invalidateOnRefresh: true
       });
     });
+
+    // Safety: reveal all items after 2s in case ScrollTrigger missed them
+    setTimeout(() => {
+      document.querySelectorAll('.media-item:not(.revealed)').forEach(item => {
+        item.style.opacity = '1';
+        item.style.transform = 'none';
+        item.classList.add('revealed');
+      });
+    }, 2000);
   });
   </script>
 </body>
