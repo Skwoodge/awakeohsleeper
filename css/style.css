@@ -963,11 +963,11 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 }
 
 .band-card .band-name {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 }
 
 .band-card.featured .band-name {
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -980,10 +980,10 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     padding: var(--space-lg) var(--space-sm);
   }
   .band-card .band-name {
-    font-size: 1.1rem;
+    font-size: 1.35rem;
   }
   .band-card.featured .band-name {
-    font-size: 1.3rem;
+    font-size: 1.65rem;
   }
 }
 
@@ -997,10 +997,10 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
     padding: var(--space-lg) var(--space-sm);
   }
   .band-card .band-name {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
   .band-card.featured .band-name {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -1039,7 +1039,7 @@ h4 { font-size: clamp(1rem, 1.8vw, 1.4rem); }
 
 .band-role {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 3px;
   color: var(--green-medium);
