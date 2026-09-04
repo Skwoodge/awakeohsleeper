@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events — Awake Oh Sleeper Productions</title>
-  <meta name="description" content="August 29, 2026 at The Yard in Prescott, AZ. Featuring Death By Stereo, Reliance, Decorum, and Undefined. All ages, $25 at the door.">
+  <meta name="description" content="Upcoming events from Awake Oh Sleeper Productions in Prescott, AZ. Punk rock shows for mental health awareness and suicide prevention.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,333 @@
   <script src="js/animations.js" defer></script>
 
   <link rel="icon" type="image/webp" href="assets/logo.webp">
+
+  <style>
+    /* ── Postponed Hero ── */
+    .postponed-hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 1;
+      padding-top: var(--nav-height);
+      background:
+        radial-gradient(ellipse at 50% 80%, rgba(230, 57, 70, 0.08) 0%, transparent 60%),
+        var(--bg-primary);
+    }
+
+    .postponed-hero .hero-content {
+      opacity: 1;
+    }
+
+    .postponed-badge {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--danger);
+      border: 1px solid var(--danger);
+      padding: 8px 20px;
+      display: inline-block;
+      margin-bottom: var(--space-lg);
+      animation: badge-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes badge-pulse {
+      0%, 100% { box-shadow: 0 0 8px rgba(230, 57, 70, 0.2); }
+      50% { box-shadow: 0 0 20px rgba(230, 57, 70, 0.4); }
+    }
+
+    .postponed-title {
+      font-family: var(--font-punk);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.1;
+      letter-spacing: 4px;
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
+    }
+
+    .postponed-title .date-strike {
+      text-decoration: line-through;
+      opacity: 0.4;
+    }
+
+    .postponed-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Apology & Video Section ── */
+    .apology-section {
+      position: relative;
+      z-index: 1;
+      padding: var(--space-2xl) 0;
+      background: rgba(6, 10, 8, 0.80);
+    }
+
+    .apology-card {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      padding: var(--space-xl);
+      background: var(--bg-card);
+      border: 1px solid rgba(233, 240, 11, 0.08);
+      position: relative;
+    }
+
+    .apology-card h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      margin-bottom: var(--space-md);
+    }
+
+    .apology-card p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+
+    .apology-card p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .ticket-hold-note {
+      margin-top: var(--space-lg);
+      padding: var(--space-md);
+      border: 1px solid rgba(233, 240, 11, 0.15);
+      background: rgba(233, 240, 11, 0.03);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+    }
+
+    /* ── Video Feature ── */
+    .video-feature {
+      position: relative;
+      z-index: 1;
+      padding: var(--space-2xl) 0;
+      background: var(--bg-primary);
+    }
+
+    .video-feature-inner {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .video-feature .section-label {
+      margin-bottom: var(--space-sm);
+    }
+
+    .video-feature h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: var(--space-xs);
+    }
+
+    .video-feature .video-caption {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-xl);
+    }
+
+    .video-frame {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    /* Outer glow ring */
+    .video-frame::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      background: linear-gradient(
+        135deg,
+        var(--accent-primary),
+        var(--green-lime),
+        var(--accent-primary),
+        var(--green-lime)
+      );
+      background-size: 300% 300%;
+      animation: border-shift 4s ease-in-out infinite;
+      z-index: -1;
+      opacity: 0.8;
+    }
+
+    @keyframes border-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Grunge corner marks */
+    .video-frame::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border: 2px solid rgba(233, 240, 11, 0.15);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .video-corner {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      z-index: 3;
+    }
+
+    .video-corner::before,
+    .video-corner::after {
+      content: '';
+      position: absolute;
+      background: var(--accent-primary);
+    }
+
+    .video-corner::before {
+      width: 100%;
+      height: 2px;
+    }
+
+    .video-corner::after {
+      width: 2px;
+      height: 100%;
+    }
+
+    .video-corner.tl { top: -10px; left: -10px; }
+    .video-corner.tl::before { top: 0; left: 0; }
+    .video-corner.tl::after { top: 0; left: 0; }
+
+    .video-corner.tr { top: -10px; right: -10px; }
+    .video-corner.tr::before { top: 0; right: 0; }
+    .video-corner.tr::after { top: 0; right: 0; }
+
+    .video-corner.bl { bottom: -10px; left: -10px; }
+    .video-corner.bl::before { bottom: 0; left: 0; }
+    .video-corner.bl::after { bottom: 0; left: 0; }
+
+    .video-corner.br { bottom: -10px; right: -10px; }
+    .video-corner.br::before { bottom: 0; right: 0; }
+    .video-corner.br::after { bottom: 0; right: 0; }
+
+    .video-frame video {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #000;
+    }
+
+    /* ── New Event Section ── */
+    .new-event-section {
+      position: relative;
+      z-index: 1;
+      padding: var(--space-2xl) 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(49, 90, 24, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(233, 240, 11, 0.03) 0%, transparent 40%),
+        rgba(4, 6, 6, 0.80);
+    }
+
+    .new-event-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid rgba(233, 240, 11, 0.1);
+      overflow: hidden;
+    }
+
+    .new-event-card .event-flyer {
+      width: 100%;
+      display: block;
+    }
+
+    .new-event-details {
+      padding: var(--space-xl);
+      text-align: center;
+    }
+
+    .new-event-details h2 {
+      font-family: var(--font-punk);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: 2px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .new-event-details .event-purpose {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .new-event-details .event-purpose strong {
+      color: var(--accent-primary);
+    }
+
+    .event-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      max-width: 500px;
+      margin: 0 auto var(--space-xl);
+      text-align: left;
+    }
+
+    .event-info-item {
+      font-size: 0.9rem;
+    }
+
+    .event-info-item .info-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-primary);
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    .event-info-item .info-value {
+      color: var(--text-secondary);
+    }
+
+    .event-info-item .info-value strong {
+      color: var(--text-primary);
+    }
+
+    .new-event-lineup {
+      margin: var(--space-xl) 0;
+    }
+
+    .new-event-lineup h3 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .new-event-lineup .band-card.featured {
+      margin-bottom: var(--space-md);
+    }
+
+    @media (max-width: 768px) {
+      .event-info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -49,52 +376,40 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" style="min-height: 60vh;">
-    <div class="hero-overlay hero-parallax"></div>
+  <!-- ===== POSTPONED HERO ===== -->
+  <section class="postponed-hero">
     <div class="hero-content">
-      <span class="hero-badge neon-text-sm">Next Show</span>
-      <h1 class="hero-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">
-        August <span class="highlight">29</span>, 2026
+      <span class="postponed-badge">Event Postponed</span>
+      <h1 class="postponed-title">
+        August <span class="date-strike">29</span>, 2026
       </h1>
-      <p class="hero-subtitle">
-        The Yard · Prescott, AZ · Doors 6PM · Show 7PM · All Ages
+      <p class="postponed-subtitle">
+        The August 29th show at The Yard has been postponed due to severe weather.
+        A new date will be announced soon. Stay tuned.
       </p>
-      <div class="hero-actions">
-        <a href="https://www.tickettailor.com/events/awakeohsleeper/2296677" target="_blank" rel="noopener" class="btn btn-primary btn-glow">Get Tickets <span class="btn-arrow">→</span></a>
-        <a href="https://www.google.com/maps/dir//214+N+Montezuma+St,+Prescott,+AZ+86301" target="_blank" rel="noopener" class="btn btn-secondary">Get Directions</a>
-      </div>
     </div>
-
   </section>
 
-  <!-- ===== COUNTDOWN ===== -->
-  <section class="section section-darker">
-    <div class="container">
-      <div style="text-align: center;" class="reveal">
-        <span class="section-label">Countdown</span>
-        <h2>The Night Is <span class="neon-text">Coming</span></h2>
-      </div>
+  <div class="section-divider"></div>
 
-      <div id="countdown" class="countdown reveal">
-        <div class="countdown-item">
-          <span class="countdown-number" id="count-days">00</span>
-          <span class="countdown-label">Days</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-item">
-          <span class="countdown-number" id="count-hours">00</span>
-          <span class="countdown-label">Hours</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-item">
-          <span class="countdown-number" id="count-minutes">00</span>
-          <span class="countdown-label">Minutes</span>
-        </div>
-        <span class="countdown-sep">:</span>
-        <div class="countdown-item">
-          <span class="countdown-number" id="count-seconds">00</span>
-          <span class="countdown-label">Seconds</span>
+  <!-- ===== APOLOGY ===== -->
+  <section class="apology-section">
+    <div class="container">
+      <div class="apology-card reveal">
+        <span class="section-label">A Message From Awake Oh Sleeper</span>
+        <h3>We're <span class="neon-text">Sorry</span></h3>
+        <p>
+          The monsoon had other plans for us on August 29th. We know how much energy
+          and love everyone brought to The Yard that night — and even when the rain
+          came down, you all gathered under the tent and kept the spirit alive. That's
+          what this community is about.
+        </p>
+        <p>
+          This show is not canceled. It's coming back. Matthew has a plan, and we'll
+          have a new date for you soon.
+        </p>
+        <div class="ticket-hold-note">
+          🎫 &nbsp; Hold onto your tickets — they will be honored at the rescheduled event.
         </div>
       </div>
     </div>
@@ -102,33 +417,23 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== BAND LINEUP ===== -->
-  <section class="section section-dark">
+  <!-- ===== EFREM VIDEO ===== -->
+  <section class="video-feature">
     <div class="container">
-      <div style="text-align: center;" class="reveal">
-        <span class="section-label">Band Lineup</span>
-        <h2>Who's <span class="neon-text">Playing</span></h2>
-        <p style="color: var(--text-secondary); margin-top: var(--space-md); max-width: 600px; margin-left: auto; margin-right: auto;">
-          Four bands. One stage. One cause.
-        </p>
-      </div>
+      <div class="video-feature-inner reveal">
+        <span class="section-label">From the Stage</span>
+        <h2>Efrem of <span class="neon-text">Death By Stereo</span></h2>
+        <p class="video-caption">A few words from our headliner</p>
 
-      <div class="band-lineup stagger-children" style="margin-top: var(--space-xl);">
-        <div class="band-card featured">
-          <div class="band-name neon-text">Death By Stereo</div>
-          <div class="band-role">Headlining</div>
-        </div>
-        <div class="band-card">
-          <div class="band-name">Reliance</div>
-          <div class="band-role">Performing</div>
-        </div>
-        <div class="band-card">
-          <div class="band-name">Decorum</div>
-          <div class="band-role">Performing</div>
-        </div>
-        <div class="band-card">
-          <div class="band-name">Undefined</div>
-          <div class="band-role">Performing</div>
+        <div class="video-frame">
+          <span class="video-corner tl"></span>
+          <span class="video-corner tr"></span>
+          <span class="video-corner bl"></span>
+          <span class="video-corner br"></span>
+          <video controls preload="metadata" playsinline>
+            <source src="death_by_stereo.mov" type="video/quicktime">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
@@ -136,26 +441,69 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== TICKETING ===== -->
-  <section class="section section-darker">
+  <!-- ===== NEW EVENT: OCTOBER 23 ===== -->
+  <section class="new-event-section">
     <div class="container">
-      <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto;">
-        <span class="section-label">Tickets</span>
-        <h2>Get Your <span class="neon-text">Tickets</span></h2>
+      <div style="text-align: center;" class="reveal">
+        <span class="section-label">Next Show</span>
+        <h2>Matthew Clark's <span class="neon-text">Birthday Bash</span></h2>
+      </div>
 
-        <div class="ticket-price" style="margin: var(--space-lg) 0;">
-          $25 <span class="highlight">At The Door</span>
+      <div class="new-event-card reveal" style="margin-top: var(--space-xl);">
+        <img src="birdcage_event.jpg" alt="Matthew Clark Birthday Bash — October 23 at Birdcage Saloon" class="event-flyer">
+
+        <div class="new-event-details">
+          <div class="event-info-grid">
+            <div class="event-info-item">
+              <span class="info-label">Date</span>
+              <span class="info-value"><strong>Friday, October 23, 2026</strong></span>
+            </div>
+            <div class="event-info-item">
+              <span class="info-label">Age</span>
+              <span class="info-value"><strong>21+</strong></span>
+            </div>
+            <div class="event-info-item">
+              <span class="info-label">Doors</span>
+              <span class="info-value">6:00 PM</span>
+            </div>
+            <div class="event-info-item">
+              <span class="info-label">Music</span>
+              <span class="info-value">7:00 PM</span>
+            </div>
+            <div class="event-info-item">
+              <span class="info-label">Venue</span>
+              <span class="info-value"><strong>Birdcage Saloon</strong><br>160 S Montezuma, Prescott, AZ 86303</span>
+            </div>
+            <div class="event-info-item">
+              <span class="info-label">Tickets</span>
+              <span class="info-value"><strong>$20</strong> online / <strong>$25</strong> at the door</span>
+            </div>
+          </div>
+
+          <div class="new-event-lineup">
+            <h3>Band Lineup</h3>
+            <div class="band-lineup stagger-children">
+              <div class="band-card featured">
+                <div class="band-name neon-text">Scott Russo</div>
+                <div class="band-role">of Unwritten Law · Headlining</div>
+              </div>
+              <div class="band-card">
+                <div class="band-name">Gabo</div>
+                <div class="band-role">of Fayuca</div>
+              </div>
+              <div class="band-card">
+                <div class="band-name">Soundvision</div>
+                <div class="band-role">Performing</div>
+              </div>
+              <div class="band-card">
+                <div class="band-name">Ghost Town Jukebox</div>
+                <div class="band-role">Performing</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://buytickets.at/awakeohsleeper/2398811" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Get Tickets <span class="btn-arrow">→</span></a>
         </div>
-
-        <p style="color: var(--text-secondary); margin-bottom: var(--space-md);">
-          All ages welcome · 12 and under FREE
-        </p>
-
-        <div style="margin-bottom: var(--space-md);">
-          <a href="https://www.tickettailor.com/events/awakeohsleeper/2296677" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Get Tickets <span class="btn-arrow">→</span></a>
-        </div>
-
-
       </div>
     </div>
   </section>
@@ -167,20 +515,20 @@
     <div class="container">
       <div style="text-align: center;" class="reveal">
         <span class="section-label">Venue</span>
-        <h2>The <span class="neon-text">Yard</span></h2>
+        <h2>Birdcage <span class="neon-text">Saloon</span></h2>
         <p style="color: var(--text-secondary); margin: var(--space-md) 0 var(--space-lg);">
           Prescott, AZ
         </p>
         <div style="background: var(--bg-card); border: 1px solid rgba(233, 240, 11, 0.08); padding: var(--space-lg); max-width: 500px; margin: 0 auto;">
           <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            <strong style="color: var(--accent-primary);">Address:</strong> 160 S Montezuma, Prescott, AZ 86303<br>
             <strong style="color: var(--accent-primary);">Doors:</strong> 6:00 PM<br>
             <strong style="color: var(--accent-primary);">Show:</strong> 7:00 PM<br>
-            <strong style="color: var(--accent-primary);">Ages:</strong> All Ages (12 &amp; under free)<br>
-            <strong style="color: var(--accent-primary);">Price:</strong> $25 at the door<br>
-            <strong style="color: var(--accent-primary);">Parking:</strong> Street parking available
+            <strong style="color: var(--accent-primary);">Ages:</strong> 21+<br>
+            <strong style="color: var(--accent-primary);">Price:</strong> $20 online / $25 at the door
           </p>
         </div>
-        <a href="https://www.google.com/maps/dir//214+N+Montezuma+St,+Prescott,+AZ+86301" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top: var(--space-lg); display: inline-block;">Get Directions</a>
+        <a href="https://www.google.com/maps/dir//160+S+Montezuma+St,+Prescott,+AZ+86303" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top: var(--space-lg); display: inline-block;">Get Directions</a>
       </div>
     </div>
   </section>
@@ -240,46 +588,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-  // ── Countdown Timer with Color Shift ──
-  (function() {
-    const target = new Date('2026-08-29T18:00:00-07:00').getTime();
-    const els = {
-      days: document.getElementById('count-days'),
-      hours: document.getElementById('count-hours'),
-      minutes: document.getElementById('count-minutes'),
-      seconds: document.getElementById('count-seconds')
-    };
-    if (!els.days) return;
-    const prev = { days: '', hours: '', minutes: '', seconds: '' };
-
-    function flash(el) {
-      el.classList.remove('tick');
-      void el.offsetWidth;
-      el.classList.add('tick');
-    }
-
-    function update() {
-      const diff = Math.max(0, target - Date.now());
-      const vals = {
-        days: String(Math.floor(diff / 86400000)).padStart(2, '0'),
-        hours: String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0'),
-        minutes: String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0'),
-        seconds: String(Math.floor((diff % 60000) / 1000)).padStart(2, '0')
-      };
-      for (const key of Object.keys(vals)) {
-        if (vals[key] !== prev[key]) {
-          els[key].textContent = vals[key];
-          flash(els[key]);
-          prev[key] = vals[key];
-        }
-      }
-    }
-    update();
-    setInterval(update, 1000);
-  })();
-  </script>
 
 </body>
 </html>
