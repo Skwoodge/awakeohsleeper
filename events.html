@@ -72,337 +72,6 @@
       color: var(--text-secondary);
     }
 
-    /* ── Events Grid ── */
-    .events-grid-section {
-      position: relative;
-      z-index: 1;
-      padding: 0 0 var(--space-2xl);
-      background: var(--bg-primary);
-    }
-
-    .events-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: rgba(233, 240, 11, 0.06);
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    /* ── Event Card ── */
-    .ev-card {
-      display: flex;
-      background: var(--bg-primary);
-      cursor: pointer;
-      transition: background 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ev-card:hover {
-      background: rgba(10, 14, 12, 1);
-    }
-
-    .ev-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent-primary);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .ev-card:hover::after {
-      transform: scaleX(1);
-    }
-
-    /* Date block */
-    .ev-date {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-width: 90px;
-      padding: var(--space-lg) var(--space-md);
-      background: rgba(10, 14, 12, 0.5);
-      border-right: 1px solid rgba(233, 240, 11, 0.06);
-      flex-shrink: 0;
-    }
-
-    .ev-date .day-name {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--accent-primary);
-      margin-bottom: 4px;
-    }
-
-    .ev-date .day-num {
-      font-family: var(--font-heading);
-      font-size: 3rem;
-      font-weight: 900;
-      line-height: 1;
-      color: var(--text-primary);
-    }
-
-    .ev-date .month {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-top: 4px;
-    }
-
-    /* Info area */
-    .ev-info {
-      flex: 1;
-      padding: var(--space-lg) var(--space-lg);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-    }
-
-    .ev-info .ev-title {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-primary);
-      margin-bottom: 6px;
-      line-height: 1.2;
-    }
-
-    .ev-card.featured .ev-title {
-      color: var(--accent-primary);
-      text-shadow: 0 0 30px var(--glow-green);
-      font-size: 1.2rem;
-    }
-
-    .ev-info .ev-meta {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.4;
-    }
-
-    .ev-info .ev-meta .ev-lineup-mini {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.8rem;
-      color: var(--accent-tertiary);
-    }
-
-    /* Postponed card */
-    .ev-card.postponed {
-      opacity: 0.6;
-    }
-
-    .ev-card.postponed:hover {
-      opacity: 0.8;
-    }
-
-    .ev-card.postponed .ev-title {
-      color: var(--text-secondary);
-      text-shadow: none;
-    }
-
-    .ev-badge-postponed {
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--danger);
-      border: 1px solid rgba(230, 57, 70, 0.4);
-      padding: 3px 8px;
-      display: inline-block;
-      margin-top: 6px;
-    }
-
-    /* ── Expanded Event Detail ── */
-    .ev-detail-section {
-      position: relative;
-      z-index: 1;
-      padding: var(--space-xl) 0 var(--space-2xl);
-      background: var(--bg-primary);
-    }
-
-    .ev-detail-card {
-      max-width: 700px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border: 1px solid rgba(233, 240, 11, 0.1);
-      padding: var(--space-xl);
-    }
-
-    .ev-detail-card h2 {
-      font-family: var(--font-punk);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      letter-spacing: 2px;
-      margin-bottom: var(--space-xs);
-      text-align: center;
-    }
-
-    .ev-detail-card .ev-detail-sub {
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      letter-spacing: 0.5px;
-      margin-bottom: var(--space-xl);
-    }
-
-    .ev-detail-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-md);
-      margin-bottom: var(--space-xl);
-      padding-bottom: var(--space-xl);
-      border-bottom: 1px solid rgba(233, 240, 11, 0.06);
-    }
-
-    .ev-detail-item {
-      text-align: center;
-    }
-
-    .ev-detail-item .edi-label {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent-primary);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .ev-detail-item .edi-value {
-      font-size: 1.2rem;
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .ev-detail-item .edi-value small {
-      font-weight: 400;
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    /* Lineup inside detail */
-    .ev-lineup {
-      text-align: center;
-      margin-bottom: var(--space-xl);
-    }
-
-    .ev-lineup h3 {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      margin-bottom: var(--space-lg);
-    }
-
-    .ev-lineup .lineup-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-sm);
-    }
-
-    .ev-lineup .lineup-act {
-      padding: var(--space-sm) var(--space-lg);
-      background: rgba(10, 14, 12, 0.6);
-      border: 1px solid rgba(233, 240, 11, 0.08);
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .ev-lineup .lineup-act:hover {
-      border-color: rgba(233, 240, 11, 0.25);
-      background: rgba(20, 24, 22, 0.8);
-    }
-
-    .ev-lineup .lineup-act.headliner {
-      border-color: rgba(233, 240, 11, 0.2);
-      background: rgba(233, 240, 11, 0.04);
-    }
-
-    .ev-lineup .lineup-act .act-name {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      display: block;
-    }
-
-    .ev-lineup .lineup-act.headliner .act-name {
-      font-size: 1.4rem;
-      color: var(--accent-primary);
-      text-shadow: 0 0 20px var(--glow-green);
-    }
-
-    .ev-lineup .lineup-act .act-role {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      display: block;
-      margin-top: 2px;
-    }
-
-    .ev-lineup .lineup-act.headliner .act-role {
-      color: var(--accent-tertiary);
-    }
-
-    .ev-detail-actions {
-      text-align: center;
-    }
-
-    /* ── Postponed Detail ── */
-    .ev-detail-card.postponed-detail {
-      border-color: rgba(230, 57, 70, 0.15);
-    }
-
-    .ev-detail-card.postponed-detail h2 {
-      color: var(--text-secondary);
-    }
-
-    .ev-detail-card.postponed-detail p {
-      color: var(--text-secondary);
-      line-height: 1.8;
-      text-align: center;
-      max-width: 500px;
-      margin: 0 auto var(--space-lg);
-    }
-
-    .ticket-hold-note {
-      padding: var(--space-md);
-      border: 1px solid rgba(233, 240, 11, 0.15);
-      background: rgba(233, 240, 11, 0.03);
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      color: var(--accent-primary);
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    /* ── Section Divider ── */
-    .ev-divider {
-      max-width: 1000px;
-      margin: 0 auto;
-      height: 1px;
-      background: rgba(233, 240, 11, 0.06);
-    }
-
     /* ── Video Feature ── */
     .video-feature {
       position: relative;
@@ -503,56 +172,338 @@
       background: #000;
     }
 
+    /* ── Show Cards (image-first) ── */
+    .events-grid-section {
+      position: relative;
+      z-index: 1;
+      padding: 0 0 var(--space-2xl);
+      background: var(--bg-primary);
+    }
+
+    .show-list {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+      padding: var(--space-xl) var(--space-md) 0;
+    }
+
+    .show-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid rgba(233, 240, 11, 0.1);
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .show-card:hover {
+      border-color: rgba(233, 240, 11, 0.35);
+    }
+
+    .show-media {
+      position: relative;
+      display: block;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+      text-decoration: none;
+    }
+
+    .show-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .show-media img.fp-top {
+      object-position: center 25%;
+    }
+
+    .show-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(4, 6, 6, 0.5) 0%, rgba(4, 6, 6, 0) 30%);
+      pointer-events: none;
+    }
+
+    /* Date chip */
+    .show-date {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-md);
+      z-index: 3;
+      width: 110px;
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      background: rgba(4, 6, 6, 0.88);
+      border: 2px solid rgba(233, 240, 11, 0.55);
+      box-shadow: 0 0 24px rgba(233, 240, 11, 0.18);
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .show-date .day-name {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+    }
+
+    .show-date .day-num {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--text-primary);
+    }
+
+    .show-date .month {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    /* Postponed badge */
+    .show-badge {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      z-index: 3;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--danger);
+      background: rgba(4, 6, 6, 0.85);
+      border: 1px solid rgba(230, 57, 70, 0.5);
+      padding: 6px 12px;
+    }
+
+    .show-card:hover .show-media img {
+      transform: scale(1.04);
+    }
+
+    .show-card.postponed .show-media img {
+      filter: grayscale(0.75) brightness(0.55);
+    }
+
+    .show-card.postponed:hover .show-media img {
+      transform: none;
+      filter: grayscale(0.75) brightness(0.55);
+    }
+
+    /* Card body */
+    .show-body {
+      padding: var(--space-lg);
+      text-align: center;
+    }
+
+    .show-title {
+      font-family: var(--font-punk);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin-bottom: var(--space-xs);
+    }
+
+    .show-sub {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xl);
+    }
+
+    .show-sub.status-postponed {
+      color: var(--danger);
+    }
+
+    .show-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid rgba(233, 240, 11, 0.06);
+    }
+
+    .show-meta .sm-item {
+      text-align: center;
+    }
+
+    .show-meta .edi-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+      margin-bottom: 4px;
+    }
+
+    .show-meta .edi-value {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .show-meta .edi-value small {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+
+    .show-lineup {
+      margin-bottom: var(--space-xl);
+    }
+
+    .show-lineup .lineup-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .show-acts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm);
+    }
+
+    .act {
+      display: block;
+      padding: var(--space-sm) var(--space-lg);
+      background: rgba(10, 14, 12, 0.6);
+      border: 1px solid rgba(233, 240, 11, 0.08);
+      text-align: center;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .act:hover {
+      border-color: rgba(233, 240, 11, 0.25);
+      background: rgba(20, 24, 22, 0.8);
+    }
+
+    .act.headliner {
+      border-color: rgba(233, 240, 11, 0.25);
+      background: rgba(233, 240, 11, 0.05);
+    }
+
+    .act .act-name {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .act.headliner .act-name {
+      font-size: 1.3rem;
+      color: var(--accent-primary);
+      text-shadow: 0 0 20px var(--glow-green);
+    }
+
+    .act .act-role {
+      display: block;
+      margin-top: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .show-actions {
+      text-align: center;
+    }
+
+    .show-card.postponed .show-body p {
+      max-width: 520px;
+      margin: 0 auto var(--space-lg);
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .ticket-hold-note {
+      padding: var(--space-md);
+      border: 1px solid rgba(233, 240, 11, 0.15);
+      background: rgba(233, 240, 11, 0.03);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
     /* ── Mobile ── */
     @media (max-width: 768px) {
-      .events-grid {
-        grid-template-columns: 1fr;
+      .show-list {
+        gap: var(--space-lg);
+        padding: var(--space-lg) var(--space-sm) 0;
       }
 
-      .ev-date {
-        min-width: 70px;
-        padding: var(--space-md) var(--space-sm);
+      .show-body {
+        padding: var(--space-md);
       }
 
-      .ev-date .day-num {
-        font-size: 2.2rem;
+      .show-sub {
+        margin-bottom: var(--space-lg);
       }
 
-      .ev-info {
-        padding: var(--space-md) var(--space-lg);
-      }
-
-      .ev-info .ev-title {
-        font-size: 1rem;
-      }
-
-      .ev-card.featured .ev-title {
-        font-size: 1.1rem;
-      }
-
-      .ev-detail-grid {
+      .show-meta {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+        padding-bottom: var(--space-lg);
       }
 
-      .ev-lineup .lineup-act {
-        padding: var(--space-sm) var(--space-md);
+      .show-lineup {
+        margin-bottom: var(--space-lg);
       }
+
     }
 
     @media (max-width: 480px) {
-      .ev-date .day-num {
-        font-size: 1.8rem;
+      .show-list {
+        padding: var(--space-md) var(--space-sm) 0;
       }
 
-      .ev-info .ev-title {
-        font-size: 0.9rem;
+      .show-title {
+        font-size: 1.6rem;
       }
 
-      .ev-detail-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-sm);
+      .act {
+        padding: var(--space-sm) var(--space-md);
       }
+
+      .act .act-name {
+        font-size: 1rem;
+      }
+
+      .act.headliner .act-name {
+        font-size: 1.1rem;
+      }
+
     }
+
   </style>
 </head>
 <body>
@@ -593,182 +544,132 @@
     </div>
   </section>
 
-  <!-- ===== EVENTS GRID ===== -->
+  <!-- ===== SHOW CARDS ===== -->
   <section class="events-grid-section">
-    <div class="events-grid">
+    <div class="show-list">
 
-      <!-- Oct 23 — Birthday Bash (closest upcoming) -->
-      <a href="#oct23" class="ev-card featured reveal">
-        <div class="ev-date">
-          <span class="day-name">Fri</span>
-          <span class="day-num">23</span>
-          <span class="month">Oct</span>
-        </div>
-        <div class="ev-info">
-          <div class="ev-title">Matthew Clark's Birthday Bash</div>
-          <div class="ev-meta">
-            7:00 PM · Birdcage Saloon · 21+
-            <span class="ev-lineup-mini">Scott Russo of Unwritten Law · Gabo · Soundvision · Ghost Town Jukebox</span>
+      <!-- Oct 23 — Birthday Bash -->
+      <article class="show-card reveal" id="oct23">
+        <a class="show-media" href="https://buytickets.at/awakeohsleeper/2398811" target="_blank" rel="noopener" aria-label="Get tickets for Matthew Clark's Birthday Bash">
+          <img src="media/events/scott_russo.jpg" alt="Scott Russo of Unwritten Law">
+          <div class="show-date">
+            <span class="day-name">Fri</span>
+            <span class="day-num">23</span>
+            <span class="month">Oct</span>
+          </div>
+        </a>
+        <div class="show-body">
+          <h2 class="show-title">Matthew Clark's <span class="neon-text">Birthday Bash</span></h2>
+          <div class="show-sub">Friday, October 23, 2026 &middot; Birdcage Saloon &middot; Prescott, AZ</div>
+
+          <div class="show-meta">
+            <div class="sm-item">
+              <span class="edi-label">Doors</span>
+              <span class="edi-value">6:00 PM</span>
+            </div>
+            <div class="sm-item">
+              <span class="edi-label">Music</span>
+              <span class="edi-value">7:00 PM</span>
+            </div>
+            <div class="sm-item">
+              <span class="edi-label">Ages</span>
+              <span class="edi-value">21+</span>
+            </div>
+            <div class="sm-item">
+              <span class="edi-label">Tickets</span>
+              <span class="edi-value">$20 <small>online</small></span>
+            </div>
+          </div>
+
+          <div class="show-lineup">
+            <span class="lineup-label">Lineup</span>
+            <div class="show-acts">
+              <span class="act headliner"><span class="act-name">Scott Russo</span><span class="act-role">of Unwritten Law &middot; Headlining</span></span>
+              <span class="act"><span class="act-name">Gabo</span><span class="act-role">of Fayuca</span></span>
+              <span class="act"><span class="act-name">Soundvision</span><span class="act-role">Performing</span></span>
+              <span class="act"><span class="act-name">Ghost Town Jukebox</span><span class="act-role">Performing</span></span>
+            </div>
+          </div>
+
+          <div class="show-actions">
+            <a href="https://buytickets.at/awakeohsleeper/2398811" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Get Tickets <span class="btn-arrow">&rarr;</span></a>
           </div>
         </div>
-      </a>
+      </article>
 
       <!-- Dec 4 — Authority Zero -->
-      <a href="#dec4" class="ev-card featured reveal">
-        <div class="ev-date">
-          <span class="day-name">Fri</span>
-          <span class="day-num">4</span>
-          <span class="month">Dec</span>
-        </div>
-        <div class="ev-info">
-          <div class="ev-title">Authority Zero Live</div>
-          <div class="ev-meta">
-            7:00 PM · Birdcage Saloon · 21+
-            <span class="ev-lineup-mini">Four Banger · No Gimmick · Reliance</span>
+      <article class="show-card reveal" id="dec4">
+        <a class="show-media" href="https://buytickets.at/awakeohsleeper/2426647" target="_blank" rel="noopener" aria-label="Get tickets for Authority Zero">
+          <img class="fp-top" src="media/events/authority_zero.jpeg" alt="Authority Zero band photo">
+          <div class="show-date">
+            <span class="day-name">Fri</span>
+            <span class="day-num">4</span>
+            <span class="month">Dec</span>
+          </div>
+        </a>
+        <div class="show-body">
+          <h2 class="show-title">Authority Zero</h2>
+          <div class="show-sub">Friday, December 4, 2026 &middot; Birdcage Saloon &middot; Prescott, AZ</div>
+
+          <div class="show-meta">
+            <div class="sm-item">
+              <span class="edi-label">Doors</span>
+              <span class="edi-value">6:00 PM</span>
+            </div>
+            <div class="sm-item">
+              <span class="edi-label">Music</span>
+              <span class="edi-value">7:00 PM</span>
+            </div>
+            <div class="sm-item">
+              <span class="edi-label">Ages</span>
+              <span class="edi-value">21+</span>
+            </div>
+            <div class="sm-item">
+              <span class="edi-label">Tickets</span>
+              <span class="edi-value">$25 <small>online</small></span>
+            </div>
+          </div>
+
+          <div class="show-lineup">
+            <span class="lineup-label">Lineup</span>
+            <div class="show-acts">
+              <span class="act headliner"><span class="act-name">Authority Zero</span><span class="act-role">Headlining</span></span>
+              <span class="act"><span class="act-name">Four Banger</span><span class="act-role">Performing</span></span>
+              <span class="act"><span class="act-name">No Gimmick</span><span class="act-role">Performing</span></span>
+              <span class="act"><span class="act-name">Reliance</span><span class="act-role">Performing</span></span>
+            </div>
+          </div>
+
+          <div class="show-actions">
+            <a href="https://buytickets.at/awakeohsleeper/2426647" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Get Tickets <span class="btn-arrow">&rarr;</span></a>
           </div>
         </div>
-      </a>
+      </article>
 
       <!-- Aug 29 — Postponed -->
-      <div class="ev-card postponed reveal">
-        <div class="ev-date">
-          <span class="day-name">Sat</span>
-          <span class="day-num">29</span>
-          <span class="month">Aug</span>
+      <article class="show-card postponed reveal" id="aug29">
+        <div class="show-media">
+          <img src="media/events/deathbystereo.jpg" alt="Death By Stereo band photo">
+          <div class="show-date">
+            <span class="day-name">Sat</span>
+            <span class="day-num">29</span>
+            <span class="month">Aug</span>
+          </div>
+          <span class="show-badge">Postponed</span>
         </div>
-        <div class="ev-info">
-          <div class="ev-title">Death By Stereo</div>
-          <div class="ev-meta">
-            The Yard · Postponed
-            <span class="ev-badge-postponed">Postponed · New Date TBA</span>
+        <div class="show-body">
+          <h2 class="show-title">Death By Stereo</h2>
+          <div class="show-sub status-postponed">Postponed &middot; New Date TBA</div>
+          <p>
+            The August 29th show at The Yard was postponed due to severe weather.
+            A new date will be announced soon.
+          </p>
+          <div class="ticket-hold-note">
+            &#127915; &nbsp; Hold onto your tickets — they will be honored at the rescheduled event.
           </div>
         </div>
-      </div>
+      </article>
 
-    </div>
-  </section>
-
-  <!-- ===== OCT 23 DETAIL ===== -->
-  <div class="ev-divider" id="oct23"></div>
-  <section class="ev-detail-section">
-    <div class="ev-detail-card reveal">
-      <h2>Matthew Clark's <span class="neon-text">Birthday Bash</span></h2>
-      <div class="ev-detail-sub">Friday, October 23, 2026 · Birdcage Saloon · Prescott, AZ</div>
-
-      <div class="ev-detail-grid">
-        <div class="ev-detail-item">
-          <span class="edi-label">Doors</span>
-          <span class="edi-value">6:00 PM</span>
-        </div>
-        <div class="ev-detail-item">
-          <span class="edi-label">Music</span>
-          <span class="edi-value">7:00 PM</span>
-        </div>
-        <div class="ev-detail-item">
-          <span class="edi-label">Ages</span>
-          <span class="edi-value">21+</span>
-        </div>
-        <div class="ev-detail-item">
-          <span class="edi-label">Tickets</span>
-          <span class="edi-value">$20 <small>online</small></span>
-        </div>
-      </div>
-
-      <div class="ev-lineup">
-        <h3>Lineup</h3>
-        <div class="lineup-list stagger-children">
-          <div class="lineup-act headliner">
-            <span class="act-name">Scott Russo</span>
-            <span class="act-role">of Unwritten Law · Headlining</span>
-          </div>
-          <div class="lineup-act">
-            <span class="act-name">Gabo</span>
-            <span class="act-role">of Fayuca</span>
-          </div>
-          <div class="lineup-act">
-            <span class="act-name">Soundvision</span>
-            <span class="act-role">Performing</span>
-          </div>
-          <div class="lineup-act">
-            <span class="act-name">Ghost Town Jukebox</span>
-            <span class="act-role">Performing</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ev-detail-actions">
-        <a href="https://buytickets.at/awakeohsleeper/2398811" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Get Tickets <span class="btn-arrow">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== DEC 4 DETAIL ===== -->
-  <div class="ev-divider" id="dec4"></div>
-  <section class="ev-detail-section">
-    <div class="ev-detail-card reveal">
-      <h2>Authority Zero <span class="neon-text">Live</span></h2>
-      <div class="ev-detail-sub">Friday, December 4, 2026 · Birdcage Saloon · Prescott, AZ</div>
-
-      <div class="ev-detail-grid">
-        <div class="ev-detail-item">
-          <span class="edi-label">Doors</span>
-          <span class="edi-value">6:00 PM</span>
-        </div>
-        <div class="ev-detail-item">
-          <span class="edi-label">Music</span>
-          <span class="edi-value">7:00 PM</span>
-        </div>
-        <div class="ev-detail-item">
-          <span class="edi-label">Ages</span>
-          <span class="edi-value">21+</span>
-        </div>
-        <div class="ev-detail-item">
-          <span class="edi-label">Tickets</span>
-          <span class="edi-value">$25 <small>online</small></span>
-        </div>
-      </div>
-
-      <div class="ev-lineup">
-        <h3>Lineup</h3>
-        <div class="lineup-list stagger-children">
-          <div class="lineup-act headliner">
-            <span class="act-name">Authority Zero</span>
-            <span class="act-role">Headlining</span>
-          </div>
-          <div class="lineup-act">
-            <span class="act-name">Four Banger</span>
-            <span class="act-role">Performing</span>
-          </div>
-          <div class="lineup-act">
-            <span class="act-name">No Gimmick</span>
-            <span class="act-role">Performing</span>
-          </div>
-          <div class="lineup-act">
-            <span class="act-name">Reliance</span>
-            <span class="act-role">Performing</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ev-detail-actions">
-        <a href="https://buytickets.at/awakeohsleeper/2426647" target="_blank" rel="noopener" class="btn btn-ticket btn-glow">Get Tickets <span class="btn-arrow">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AUG 29 POSTPONED DETAIL ===== -->
-  <div class="ev-divider"></div>
-  <section class="ev-detail-section">
-    <div class="ev-detail-card postponed-detail reveal">
-      <h2>Death By Stereo</h2>
-      <div class="ev-detail-sub" style="color: var(--danger);">Postponed · New Date TBA</div>
-      <p>
-        The August 29th show at The Yard was postponed due to severe weather.
-        A new date will be announced soon.
-      </p>
-      <div class="ticket-hold-note">
-        🎫 &nbsp; Hold onto your tickets — they will be honored at the rescheduled event.
-      </div>
     </div>
   </section>
 
